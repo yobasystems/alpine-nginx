@@ -28,3 +28,4 @@ Gitlab Container Registry build:
     - docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:master -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:latest .
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:master
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:latest
+    - cd $TAG_FOLDER && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:$TAG_NAME . && docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:$TAG_NAME
