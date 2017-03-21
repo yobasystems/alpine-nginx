@@ -14,6 +14,7 @@ This Docker image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasyst
     * 9 MB and only 4 layers
     * 18 MB and only 5 layers :git version
     * 8 MB and 4 layers armhf version
+    * 16 MB and 5 layers armhf-git version
   * Memory usage is minimal on a simple install
   * Auto git clone from repo with yobasystems/alpine-nginx:git docker image tag
   * Armv7 (armhf) version with ```:armhf``` tag
@@ -112,3 +113,5 @@ webapp:
 * [Yoba Systems](https://www.yobasystems.co.uk/)
 
 * [Dockerhub - yobasystems](https://hub.docker.com/u/yobasystems/)
+
+* [Quay.io - yobasystems](https://quay.io/organization/yobasystems)
