@@ -11,18 +11,21 @@ This Docker image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasyst
 ## Features
 
   * Minimal size only
-    * 6.6 MB and only 4 layers
-    * 15.8 MB and only 5 layers :git version
+    * 9 MB and only 4 layers
+    * 18 MB and only 5 layers :git version
+    * 8 MB and 4 layers armhf version
   * Memory usage is minimal on a simple install
   * Auto git clone from repo with yobasystems/alpine-nginx:git docker image tag
   * Armv7 (armhf) version with ```:armhf``` tag
+  * Armv7 (armhf) version with git ```:armhf-git``` tag
 
 ## Tags
 
   * ```:latest``` latest nginx & alpine
   * ```:master``` master branch usually inline with latest
   * ```:v0.0.0``` version number related to nginx version
-  * ```:armhf``` Armv7 based on latest tag but arm architecture 
+  * ```:armhf``` Armv7 based on latest tag but arm architecture
+  * ```:armhf-git``` Armv7 based on latest tag but arm architecture and includes Git
 
 ## Creating an instance
 
