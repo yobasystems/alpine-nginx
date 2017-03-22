@@ -29,3 +29,14 @@ Gitlab Container Registry build:
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:master
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:latest
     - cd $TAG_FOLDER && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:$TAG_NAME . && docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:$TAG_NAME
+
+ARM Gitlab Container Registry build:
+  services:
+    - yobasystems/alpine-dind:armhf-dind
+  stage: build
+  tags: armhf
+  script:
+    - apk add --update git
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $DOCKER_REGISTRY
+    - cd $ARM_FOLDER && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:$ARM_NAME . && docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:$ARM_NAME
+    - cd $ARM2_FOLDER && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:$ARM2_NAME . && docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:$ARM2_NAME
