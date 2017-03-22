@@ -34,7 +34,8 @@ ARM Gitlab Container Registry build:
   services:
     - yobasystems/alpine-dind:armhf-dind
   stage: build
-  tags: armhf
+  tags:
+    - armhf
   script:
     - apk add --update git
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $DOCKER_REGISTRY
