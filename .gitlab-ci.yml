@@ -19,8 +19,7 @@ Bitbucket Mirror:
     - git push git@$BITBUCKET_REPO HEAD:master
 
 Gitlab Container Registry build:
-  image:
-    - docker:dind
+  image: docker:dind
   stage: build
   script:
     - apk add --update git
@@ -31,8 +30,7 @@ Gitlab Container Registry build:
     - cd $TAG_FOLDER && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:$TAG_NAME . && docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:$TAG_NAME
 
 ARM Gitlab Container Registry build:
-  image:
-    - yobasystems/alpine-dind:armhf-dind
+  image: yobasystems/alpine-dind:armhf-dind
   stage: build
   tags:
     - armhf
