@@ -30,6 +30,7 @@ Gitlab Container Registry build:
     - cd $TAG_FOLDER && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:$TAG_NAME . && docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:$TAG_NAME
 
 ARM Gitlab Container Registry build:
+  stage: yobasystems/alpine-dind:armhf
   stage: build
   tags:
     - armhf
