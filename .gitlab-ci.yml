@@ -19,7 +19,8 @@ Bitbucket Mirror:
     - git push git@$BITBUCKET_REPO HEAD:master
 
 Gitlab Container Registry build:
-  image: docker:dind
+  services: 
+    - docker:dind
   stage: build
   script:
     - apk add --update git
