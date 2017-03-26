@@ -33,7 +33,7 @@ ARM Gitlab Container Registry build:
   image: yobasystems/alpine-dind:armhf-dind
   stage: build
   variables:
-  DOCKER_HOST: tcp://localhost:2375
+    - DOCKER_HOST: tcp://localhost:2375
   tags:
     - armhf
   script:
