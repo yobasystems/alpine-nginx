@@ -24,6 +24,7 @@ This Docker image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasyst
 
   * ```:latest``` latest nginx & alpine
   * ```:master``` master branch usually inline with latest
+  * ```:git``` latest branch with git which auto pulls repo upon container start
   * ```:v0.0.0``` version number related to nginx version
   * ```:armhf``` Armv7 based on latest tag but arm architecture
   * ```:armhf-git``` Armv7 based on latest tag but arm architecture and includes Git
