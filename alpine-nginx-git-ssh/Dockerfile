@@ -8,9 +8,9 @@ RUN \
   runtime_pkgs="ca-certificates openssl pcre zlib git" && \
   apk --update add ${build_pkgs} ${runtime_pkgs} && \
   cd /tmp && \
-  wget http://nginx.org/download/nginx-1.11.13.tar.gz && \
-  tar xzf nginx-1.11.13.tar.gz && \
-  cd /tmp/nginx-1.11.13 && \
+  wget http://nginx.org/download/nginx-1.13.0.tar.gz && \
+  tar xzf nginx-1.13.0.tar.gz && \
+  cd /tmp/nginx-1.13.0 && \
   ./configure \
     --prefix=/etc/nginx \
     --sbin-path=/usr/sbin/nginx \
@@ -61,6 +61,8 @@ COPY files/nginx.conf /etc/nginx/nginx.conf
 COPY files/run.sh /run.sh
 
 RUN chmod +x /run.sh
+
+RUN apk --update add openssh
 
 VOLUME ["/var/cache/nginx"]
 

@@ -8,9 +8,9 @@ RUN \
   runtime_pkgs="ca-certificates openssl pcre zlib git" && \
   apk --update add ${build_pkgs} ${runtime_pkgs} && \
   cd /tmp && \
-  wget http://nginx.org/download/nginx-1.11.13.tar.gz && \
-  tar xzf nginx-1.11.13.tar.gz && \
-  cd /tmp/nginx-1.11.13 && \
+  wget http://nginx.org/download/nginx-1.13.0.tar.gz && \
+  tar xzf nginx-1.13.0.tar.gz && \
+  cd /tmp/nginx-1.13.0 && \
   ./configure \
     --prefix=/etc/nginx \
     --sbin-path=/usr/sbin/nginx \
