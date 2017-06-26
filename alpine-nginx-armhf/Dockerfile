@@ -1,14 +1,14 @@
-FROM armhf/alpine:3.5
-MAINTAINER Dominic Taylor <dominic@yobasystems.co.uk>
+FROM yobasystems/alpine:armhf
+LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM32v7/armhf"
 
 RUN \
   build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" && \
   runtime_pkgs="ca-certificates openssl pcre zlib" && \
   apk --update add ${build_pkgs} ${runtime_pkgs} && \
   cd /tmp && \
-  wget http://nginx.org/download/nginx-1.13.0.tar.gz && \
-  tar xzf nginx-1.13.0.tar.gz && \
-  cd /tmp/nginx-1.13.0 && \
+  wget http://nginx.org/download/nginx-1.13.1.tar.gz && \
+  tar xzf nginx-1.13.1.tar.gz && \
+  cd /tmp/nginx-1.13.1 && \
   ./configure \
     --prefix=/etc/nginx \
     --sbin-path=/usr/sbin/nginx \

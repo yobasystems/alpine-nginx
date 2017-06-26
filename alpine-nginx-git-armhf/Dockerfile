@@ -1,5 +1,5 @@
-FROM yobasystems/alpine:amd64
-LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="AMD64/x86_64"
+FROM yobasystems/alpine:armhf
+LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM32v7/armhf" 
 
 ENV REPO="https://yobasystems@bitbucket.org/yobasystems/default-index.git"
 
@@ -61,8 +61,6 @@ COPY files/nginx.conf /etc/nginx/nginx.conf
 COPY files/run.sh /run.sh
 
 RUN chmod +x /run.sh
-
-RUN apk --update add openssh
 
 VOLUME ["/var/cache/nginx"]
 

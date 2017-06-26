@@ -2,14 +2,103 @@ stages:
   - build
   - deploy
 
-Github Mirror:
+amd64 nginx build:
+  stage: yobasystems/alpine-docker:dind
   stage: build
+  tags:
+    - amd64
+  script:
+    - apk add --update git
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $DOCKER_REGISTRY
+    - cd alpine-nginx/ && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:master -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:latest -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64 .
+    - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:master
+    - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:latest
+    - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64
+
+amd64 nginx-git build:
+  stage: yobasystems/alpine-docker:dind
+  stage: build
+  tags:
+    - amd64
+  script:
+    - apk add --update git
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $DOCKER_REGISTRY
+    - cd alpine-nginx-git/ && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64-git .
+    - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git
+    - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64-git
+
+amd64 nginx-git-ssh build:
+  stage: yobasystems/alpine-docker:dind
+  stage: build
+  tags:
+    - amd64
+  script:
+    - apk add --update git
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $DOCKER_REGISTRY
+    - cd alpine-nginx-git-ssh/ && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64-git-ssh .
+    - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh
+    - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64-git-ssh
+
+arm32v7 nginx build:
+  stage: yobasystems/alpine-docker:armhf-dind
+  stage: build
+  tags:
+    - armhf
+  script:
+    - apk add --update git
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $DOCKER_REGISTRY
+    - cd alpine-nginx-armhf/ && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm32v7 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:arm32v7 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:arm32v7 -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:armhf -t $DOCKER_REGISTRY_DOCKERHUB_REPO:armhf -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:armhf .
+    - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm32v7
+    - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:armhf
+    - docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD && docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:arm32v7
+    - docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD && docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:armhf
+    - docker login quay.io -u $QUAY_USERNAME -p $QUAY_PASSWORD && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:arm32v7
+    - docker login quay.io -u $QUAY_USERNAME -p $QUAY_PASSWORD && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:armhf
+
+arm32v7 nginx-git build:
+  stage: yobasystems/alpine-docker:armhf-dind
+  stage: build
+  tags:
+    - armhf
+  script:
+    - apk add --update git
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $DOCKER_REGISTRY
+    - cd alpine-nginx-git-armhf/ && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm32v7-git -t $DOCKER_REGISTRY_DOCKERHUB_REPO:arm32v7-git -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:arm32v7-git -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:armhf-git -t $DOCKER_REGISTRY_DOCKERHUB_REPO:armhf-git -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:armhf-git .
+    - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm32v7-git
+    - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:armhf-git
+    - docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD && docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:arm32v7-git
+    - docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD && docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:armhf-git
+    - docker login quay.io -u $QUAY_USERNAME -p $QUAY_PASSWORD && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:arm32v7-git
+    - docker login quay.io -u $QUAY_USERNAME -p $QUAY_PASSWORD && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:armhf-git
+
+arm32v7 nginx-git-ssh build:
+  stage: yobasystems/alpine-docker:armhf-dind
+  stage: build
+  tags:
+    - armhf
+  script:
+    - apk add --update git
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $DOCKER_REGISTRY
+    - cd alpine-nginx-git-ssh-armhf/ && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm32v7-git-ssh -t $DOCKER_REGISTRY_DOCKERHUB_REPO:arm32v7-git-ssh -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:arm32v7-git-ssh -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:armhf-git-ssh -t $DOCKER_REGISTRY_DOCKERHUB_REPO:armhf-git-ssh -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:armhf-git-ssh .
+    - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm32v7-git-ssh
+    - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:armhf-git-ssh
+    - docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD && docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:arm32v7-git-ssh
+    - docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD && docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:armhf-git-ssh
+    - docker login quay.io -u $QUAY_USERNAME -p $QUAY_PASSWORD && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:arm32v7-git-ssh
+    - docker login quay.io -u $QUAY_USERNAME -p $QUAY_PASSWORD && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:armhf-git-ssh
+
+Github Mirror:
+  stage: deploy
+  tags:
+    - deploy
   script:
     - git push --mirror https://$GITHUB_USERNAME:$GITHUB_PASSWORD@$GITHUB_REPO
     - git push https://$GITHUB_USERNAME:$GITHUB_PASSWORD@$GITHUB_REPO HEAD:master
 
 Bitbucket Mirror:
-  stage: build
+  stage: deploy
+  tags:
+    - deploy
   script:
     - mkdir -p ~/.ssh
     - echo "$BB_SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
@@ -17,41 +106,3 @@ Bitbucket Mirror:
     - ssh-keyscan -H 'bitbucket.org' >> ~/.ssh/known_hosts
     - git push --mirror git@$BITBUCKET_REPO
     - git push git@$BITBUCKET_REPO HEAD:master
-
-Gitlab Container Registry build:
-  services:
-    - docker:dind
-  stage: build
-  script:
-    - apk add --update git
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $DOCKER_REGISTRY
-    - docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:master -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:latest .
-    - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:master
-    - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:latest
-    - cd $TAG_FOLDER && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:$TAG_NAME . && docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:$TAG_NAME
-
-ARM Gitlab Container Registry build:
-  stage: yobasystems/alpine-dind:armhf
-  stage: build
-  tags:
-    - armhf
-  script:
-    - apk add --update git
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $DOCKER_REGISTRY
-    - cd $ARM_FOLDER && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:$ARM_NAME -t $DOCKER_REGISTRY_DOCKERHUB_REPO:$ARM_NAME -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:$ARM_NAME .
-    - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:$ARM_NAME
-    - docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD && docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:$ARM_NAME
-    - docker login quay.io -u $QUAY_USERNAME -p $QUAY_PASSWORD && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:$ARM_NAME
-
-ARM Gitlab Container Registry build2:
-  stage: yobasystems/alpine-dind:armhf
-  stage: build
-  tags:
-    - armhf
-  script:
-    - apk add --update git
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $DOCKER_REGISTRY
-    - cd $ARM2_FOLDER && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:$ARM2_NAME -t $DOCKER_REGISTRY_DOCKERHUB_REPO:$ARM2_NAME -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:$ARM2_NAME .
-    - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:$ARM2_NAME
-    - docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD && docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:$ARM2_NAME
-    - docker login quay.io -u $QUAY_USERNAME -p $QUAY_PASSWORD && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:$ARM2_NAME
