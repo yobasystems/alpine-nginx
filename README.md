@@ -6,15 +6,18 @@
 
 
 
-This Docker image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasystems/alpine-nginx/) is based on the minimal [Alpine Linux](http://alpinelinux.org/) with version 1.13.1 of [Nginx](http://nginx.org/en/)
+This Docker image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasystems/alpine-nginx/) is based on the minimal [Alpine Linux](http://alpinelinux.org/) with version 1.13.1 of [NGINX](http://nginx.org/en/)
 
 ##### Alpine Version 3.6.2 (Released Jun 17, 2017)
-##### Nginx Version 1.13.1
+##### NGINX Version 1.13.1
 
 ----
 
 ## What is Alpine Linux?
 Alpine Linux is a Linux distribution built around musl libc and BusyBox. The image is only 5 MB in size and has access to a package repository that is much more complete than other BusyBox based images. This makes Alpine Linux a great image base for utilities and even production applications. Read more about Alpine Linux here and you can see how their mantra fits in right at home with Docker images.
+
+## What is NGINX?
+NGINX is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more. It started out as a web server designed for maximum performance and stability. In addition to its HTTP server capabilities, NGINX can also function as a proxy server for email (IMAP, POP3, and SMTP) and a reverse proxy and load balancer for HTTP, TCP, and UDP servers. [engine-ex]
 
 ## Features
 
@@ -26,46 +29,27 @@ Alpine Linux is a Linux distribution built around musl libc and BusyBox. The ima
 
 ## Architectures
 
-    * ```:amd64```, ```:latest``` - 64 bit Intel/AMD (x86_64/amd64)
-    * ```:i386```, ```:x86``` - 32 bit Intel/AMD (x86/i686)
-    * ```:arm64v8```, ```:aarch64``` - 64 bit ARM (ARMv8/aarch64)
-    * ```:arm32v7```, ```:armhf``` - 32 bit ARM (ARMv7/armhf)
+* ```:amd64```, ```:latest``` - 64 bit Intel/AMD (x86_64/amd64)
+* ```:i386```, ```:x86``` - 32 bit Intel/AMD (x86/i686)
+* ```:arm64v8```, ```:aarch64``` - 64 bit ARM (ARMv8/aarch64)
+* ```:arm32v7```, ```:armhf``` - 32 bit ARM (ARMv7/armhf)
 
 #### PLEASE CHECK TAGS BELOW FOR SUPPORTED ARCHITECTURES, THE ABOVE IS A LIST OF EXPLANATION
 
 ## Tags
 
-    * ```:latest```, ```:amd64``` latest branch based on amd64
-    * ```:master``` master branch usually inline with latest
-    * ```:git``` latest branch with git
-    * ```:git-ssh``` latest branch with git and ssh auth
-    * ```:v0.0.0``` version number related to docker version
-    * ```:armhf```, ```:arm32v7``` Armv7 based on latest tag but arm architecture
-    * ```:armhf-git```, ```:arm32v7-git``` Armv7 based on latest tag but arm architecture and includes git
-    * ```:armhf-git-ssh```, ```:arm32v7-git-ssh``` Armv7 based on latest tag but arm architecture and includes git and ssh auth
-
-
-## Creating an instance
-
-To use this image include `FROM yobasystems/alpine-nginx` at the top of your Dockerfile.
-
-```bash
-docker run --name webapp -p 80:80 -p 443:443 -e URL=www.example.co.uk yobasystems/alpine-nginx
-```
-
-To use persistent data , then use the volume var:
-
-```bash
-docker run --name webapp -p 80:80 -p 443:443 -e URL=www.example.co.uk -v /app/www:/etc/nginx/html yobasystems/alpine-nginx
-```
-
-
-Nginx logs (access and error logs) output to `stdout` and `stderr`
-
+* ```:latest```, ```:amd64``` latest branch based on amd64
+* ```:master``` master branch usually inline with latest
+* ```:git``` latest branch with git
+* ```:git-ssh``` latest branch with git and ssh auth
+* ```:v0.0.0``` version number related to docker version
+* ```:armhf```, ```:arm32v7``` Armv7 based on latest tag but arm architecture
+* ```:armhf-git```, ```:arm32v7-git``` Armv7 based on latest tag but arm architecture and includes git
+* ```:armhf-git-ssh```, ```:arm32v7-git-ssh``` Armv7 based on latest tag but arm architecture and includes git and ssh auth
 
 ## Environment Variables:
-* `URL`: specify the url with that nginx will listen on. Default to localhost.
 
+* `URL`: specify the url with that nginx will listen on. Default to localhost.
 
 ## HTML content
 
@@ -85,6 +69,23 @@ A basic nginx configuration is supplied with this image. But it's easy to overwr
 - In your `Dockerfile`, make sure your `nginx.conf` file is copied to `/etc/nginx/nginx.conf`.
 
 **Make sure you start nginx without daemon mode, by including `daemon off;` in your nginx configuration, otherwise the container will constantly exit right after nginx starts.**
+
+## Creating an instance
+
+To use this image include `FROM yobasystems/alpine-nginx` at the top of your Dockerfile.
+
+```bash
+docker run --name webapp -p 80:80 -p 443:443 -e URL=www.example.co.uk yobasystems/alpine-nginx
+```
+
+To use persistent data , then use the volume var:
+
+```bash
+docker run --name webapp -p 80:80 -p 443:443 -e URL=www.example.co.uk -v /app/www:/etc/nginx/html yobasystems/alpine-nginx
+```
+
+
+Nginx logs (access and error logs) output to `stdout` and `stderr`
 
 ## Docker Compose example:
 
