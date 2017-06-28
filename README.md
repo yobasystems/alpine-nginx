@@ -90,6 +90,8 @@ Nginx logs (access and error logs) output to `stdout` and `stderr`
 ## Docker Compose example:
 
 ```yalm
+version: '2'
+services:
 webapp:
   image: yobasystems/alpine-nginx
   environment:
@@ -106,6 +108,8 @@ webapp:
 ## Docker Compose example (Git):
 
 ```yalm
+version: '2'
+services:
 webapp:
   image: yobasystems/alpine-nginx:git
   environment:
