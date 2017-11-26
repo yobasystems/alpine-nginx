@@ -2,14 +2,14 @@
 
 [![Docker Layers](https://img.shields.io/badge/docker%20layers-4-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/alpine-nginx/) [![Docker Size](https://img.shields.io/badge/docker%20size-6.6%20MB-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/alpine-nginx/) [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/alpine-nginx.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/alpine-nginx/) [![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/alpine-nginx.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/alpine-nginx/)
 
-[![Alpine Version](https://img.shields.io/badge/alpine%20version-v3.6.2-green.svg?maxAge=2592000?style=flat-square)](http://alpinelinux.org/) [![Nginx Version](https://img.shields.io/badge/nginx%20version-v1.12.2-green.svg?maxAge=2592000?style=flat-square)](http://nginx.org/en/)
+[![Alpine Version](https://img.shields.io/badge/alpine%20version-v3.6.2-green.svg?maxAge=2592000?style=flat-square)](http://alpinelinux.org/) [![Nginx Version](https://img.shields.io/badge/nginx%20version-v1.13.7-green.svg?maxAge=2592000?style=flat-square)](http://nginx.org/en/)
 
 
 
-This Docker image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasystems/alpine-nginx/) is based on the minimal [Alpine Linux](http://alpinelinux.org/) with version 1.12.2 of [NGINX](http://nginx.org/en/)
+This Docker image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasystems/alpine-nginx/) is based on the minimal [Alpine Linux](http://alpinelinux.org/) with version 1.13.7 of [NGINX](http://nginx.org/en/)
 
 ##### Alpine Version 3.6.2 (Released Jun 17, 2017)
-##### NGINX Version 1.12.2
+##### NGINX Version 1.13.7
 
 ----
 

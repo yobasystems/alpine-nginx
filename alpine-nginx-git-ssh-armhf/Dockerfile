@@ -1,5 +1,5 @@
 FROM yobasystems/alpine:armhf
-LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM32v7/armhf" version="1.12.2"
+LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM32v7/armhf" version="1.13.7"
 
 ENV REPO="https://yobasystems@bitbucket.org/yobasystems/default-index.git"
 
@@ -8,9 +8,9 @@ RUN \
   runtime_pkgs="ca-certificates openssl pcre zlib git" && \
   apk --update add ${build_pkgs} ${runtime_pkgs} && \
   cd /tmp && \
-  wget http://nginx.org/download/nginx-1.12.2.tar.gz && \
-  tar xzf nginx-1.12.2.tar.gz && \
-  cd /tmp/nginx-1.12.2 && \
+  wget http://nginx.org/download/nginx-1.13.7.tar.gz && \
+  tar xzf nginx-1.13.7.tar.gz && \
+  cd /tmp/nginx-1.13.7 && \
   ./configure \
     --prefix=/etc/nginx \
     --sbin-path=/usr/sbin/nginx \
