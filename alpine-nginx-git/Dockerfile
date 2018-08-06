@@ -1,5 +1,5 @@
 FROM yobasystems/alpine:amd64
-LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="AMD64/x86_64" version="1.13.12"
+LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="AMD64/x86_64" version="1.15.2"
 
 ENV REPO="https://yobasystems@bitbucket.org/yobasystems/default-index.git"
 
@@ -8,9 +8,9 @@ RUN \
   runtime_pkgs="ca-certificates openssl pcre zlib git" && \
   apk --update add ${build_pkgs} ${runtime_pkgs} && \
   cd /tmp && \
-  wget http://nginx.org/download/nginx-1.13.12.tar.gz && \
-  tar xzf nginx-1.13.12.tar.gz && \
-  cd /tmp/nginx-1.13.12 && \
+  wget http://nginx.org/download/nginx-1.15.2.tar.gz && \
+  tar xzf nginx-1.15.2.tar.gz && \
+  cd /tmp/nginx-1.15.2 && \
   ./configure \
     --prefix=/etc/nginx \
     --sbin-path=/usr/sbin/nginx \

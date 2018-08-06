@@ -1,14 +1,14 @@
 FROM yobasystems/alpine:armhf
-LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM32v7/armhf" version="1.13.12"
+LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM32v7/armhf" version="1.15.2"
 
 RUN \
   build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" && \
   runtime_pkgs="ca-certificates openssl pcre zlib" && \
   apk --update add ${build_pkgs} ${runtime_pkgs} && \
   cd /tmp && \
-  wget http://nginx.org/download/nginx-1.13.12.tar.gz && \
-  tar xzf nginx-1.13.12.tar.gz && \
-  cd /tmp/nginx-1.13.12 && \
+  wget http://nginx.org/download/nginx-1.15.2.tar.gz && \
+  tar xzf nginx-1.15.2.tar.gz && \
+  cd /tmp/nginx-1.15.2 && \
   ./configure \
     --prefix=/etc/nginx \
     --sbin-path=/usr/sbin/nginx \
