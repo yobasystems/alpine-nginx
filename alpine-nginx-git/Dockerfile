@@ -1,4 +1,4 @@
-FROM yobasystems/alpine:amd64
+FROM yobasystems/alpine:3.8-amd64
 LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="AMD64/x86_64" version="1.15.2"
 
 ENV REPO="https://yobasystems@bitbucket.org/yobasystems/default-index.git"

@@ -1,4 +1,4 @@
-FROM yobasystems/alpine:armhf
+FROM yobasystems/alpine:3.8-armhf
 LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM32v7/armhf" version="1.15.2"
 
 RUN \
