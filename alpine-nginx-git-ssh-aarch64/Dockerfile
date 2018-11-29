@@ -1,9 +1,11 @@
-FROM yobasystems/alpine:3.8.1-armhf
-LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM32v7/armhf" version="1.15.7" alpineversion="3.8.1" build="29-nov-2018"
+FROM yobasystems/alpine:3.8.1-aarch64
+LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM64v8/aarch64" version="1.15.7" alpineversion="3.8.1" build="29-nov-2018"
+
+ENV REPO="https://yobasystems@bitbucket.org/yobasystems/default-index.git"
 
 RUN \
   build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" && \
-  runtime_pkgs="ca-certificates openssl pcre zlib" && \
+  runtime_pkgs="ca-certificates openssl pcre zlib git" && \
   apk --update add ${build_pkgs} ${runtime_pkgs} && \
   cd /tmp && \
   wget http://nginx.org/download/nginx-1.15.7.tar.gz && \
@@ -52,13 +54,18 @@ RUN \
   adduser -D nginx && \
   rm -rf /tmp/* && \
   apk del ${build_pkgs} && \
-  rm -rf /var/cache/apk/*
+  rm -rf /var/cache/apk/* && \
+  rm -rf /etc/nginx/html/*
 
-COPY files/index.html /etc/nginx/html/
 COPY files/nginx.conf /etc/nginx/nginx.conf
+COPY files/run.sh /run.sh
+
+RUN chmod +x /run.sh
+
+RUN apk --update add openssh
 
 VOLUME ["/var/cache/nginx"]
 
 EXPOSE 80 443
 
-CMD ["nginx"]
+ENTRYPOINT /run.sh

@@ -2,14 +2,14 @@
 
 [![Docker Layers](https://img.shields.io/badge/docker%20layers-4-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/alpine-nginx/) [![Docker Size](https://img.shields.io/badge/docker%20size-6.6%20MB-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/alpine-nginx/) [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/alpine-nginx.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/alpine-nginx/) [![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/alpine-nginx.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/alpine-nginx/)
 
-[![Alpine Version](https://img.shields.io/badge/alpine%20version-v3.8.1-green.svg?maxAge=2592000?style=flat-square)](http://alpinelinux.org/) [![Nginx Version](https://img.shields.io/badge/nginx%20version-v1.15.3-green.svg?maxAge=2592000?style=flat-square)](http://nginx.org/en/)
+[![Alpine Version](https://img.shields.io/badge/alpine%20version-v3.8.1-green.svg?maxAge=2592000?style=flat-square)](http://alpinelinux.org/) [![Nginx Version](https://img.shields.io/badge/nginx%20version-v1.15.7-green.svg?maxAge=2592000?style=flat-square)](http://nginx.org/en/)
 
 
 
-This Docker image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasystems/alpine-nginx/) is based on the minimal [Alpine Linux](http://alpinelinux.org/) with version 1.15.3 of [NGINX](http://nginx.org/en/)
+This Docker image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasystems/alpine-nginx/) is based on the minimal [Alpine Linux](http://alpinelinux.org/) with version 1.15.7 of [NGINX](http://nginx.org/en/)
 
 ##### Alpine Version 3.8.1 (Released September 11, 2018)
-##### NGINX Version 1.15.3
+##### NGINX Version 1.15.7
 
 ----
 
@@ -22,7 +22,7 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 ## Features
 
   * Minimal size only
-    * 10 MB and only 4 layers
+  * 10 MB and only 4 layers
   * Memory usage is minimal on a simple install
   * Auto git clone from repo with yobasystems/alpine-nginx:git docker image tag
 

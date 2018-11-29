@@ -1,5 +1,5 @@
-FROM yobasystems/alpine:3.8.1-armhf
-LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM32v7/armhf" version="1.15.7" alpineversion="3.8.1" build="29-nov-2018"
+FROM yobasystems/alpine:3.8.1-aarch64
+LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM64v8/aarch64" version="1.15.7" alpineversion="3.8.1" build="29-nov-2018"
 
 RUN \
   build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" && \

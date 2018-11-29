@@ -1,14 +1,14 @@
 FROM yobasystems/alpine:3.8.1-amd64
-LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="AMD64/x86_64" version="1.15.3" alpineversion="3.8.1" build="20-sep-2018"
+LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="AMD64/x86_64" version="1.15.7" alpineversion="3.8.1" build="29-nov-2018"
 
 RUN \
   build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" && \
   runtime_pkgs="ca-certificates openssl pcre zlib" && \
   apk --update add ${build_pkgs} ${runtime_pkgs} && \
   cd /tmp && \
-  wget http://nginx.org/download/nginx-1.15.3.tar.gz && \
-  tar xzf nginx-1.15.3.tar.gz && \
-  cd /tmp/nginx-1.15.3 && \
+  wget http://nginx.org/download/nginx-1.15.7.tar.gz && \
+  tar xzf nginx-1.15.7.tar.gz && \
+  cd /tmp/nginx-1.15.7 && \
   ./configure \
     --prefix=/etc/nginx \
     --sbin-path=/usr/sbin/nginx \
