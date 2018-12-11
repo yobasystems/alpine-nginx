@@ -1,5 +1,6 @@
 FROM yobasystems/alpine:3.8.1-armhf
-LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM32v7/armhf" version="1.15.7" alpineversion="3.8.1" build="29-nov-2018"
+LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM32v7/armhf"
+LABEL nginx-version="1.15.7" alpine-version="3.8.1" build="11-dec-2018"
 
 ENV REPO="https://yobasystems@bitbucket.org/yobasystems/default-index.git"
 

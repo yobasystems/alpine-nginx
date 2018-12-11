@@ -1,5 +1,6 @@
 FROM yobasystems/alpine:3.8.1-amd64
-LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="AMD64/x86_64" version="1.15.7" alpineversion="3.8.1" build="29-nov-2018"
+LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="AMD64/x86_64"
+LABEL nginx-version="1.15.7" alpine-version="3.8.1" build="11-dec-2018"
 
 ENV REPO="https://yobasystems@bitbucket.org/yobasystems/default-index.git"
 

@@ -1,9 +1,11 @@
 # Nginx Docker image running on Alpine Linux
 
-[![Docker Layers](https://img.shields.io/badge/docker%20layers-4-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/alpine-nginx/) [![Docker Size](https://img.shields.io/badge/docker%20size-6.6%20MB-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/alpine-nginx/) [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/alpine-nginx.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/alpine-nginx/) [![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/alpine-nginx.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/alpine-nginx/)
+[![Docker Automated build](https://img.shields.io/docker/automated/yobasystems/alpine-nginx.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/alpine-nginx/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/alpine-nginx.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/alpine-nginx/)
+[![Docker Stars](https://img.shields.io/docker/stars/yobasystems/alpine-nginx.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/alpine-nginx/)
 
-[![Alpine Version](https://img.shields.io/badge/alpine%20version-v3.8.1-green.svg?maxAge=2592000?style=flat-square)](http://alpinelinux.org/) [![Nginx Version](https://img.shields.io/badge/nginx%20version-v1.15.7-green.svg?maxAge=2592000?style=flat-square)](http://nginx.org/en/)
-
+[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.8.1-green.svg?style=for-the-badge)](http://alpinelinux.org/)
+[![Nginx Version](https://img.shields.io/badge/Nginx%20version-v1.15.7-green.svg?style=for-the-badge)](http://nginx.org/en/)
 
 
 This Docker image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasystems/alpine-nginx/) is based on the minimal [Alpine Linux](http://alpinelinux.org/) with version 1.15.7 of [NGINX](http://nginx.org/en/)
@@ -21,18 +23,15 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 
 ## Features
 
-  * Minimal size only
-  * 10 MB and only 4 layers
-  * Memory usage is minimal on a simple install
-  * Auto git clone from repo with yobasystems/alpine-nginx:git docker image tag
-
+  * Minimal size only, minimal layers
+  * Memory usage is minimal on a simple install.
+  * Auto git clone from repo with `yobasystems/alpine-nginx:git` tag
 
 ## Architectures
 
-* ```:amd64```, ```:latest``` - 64 bit Intel/AMD (x86_64/amd64)
-* ```:i386```, ```:x86``` - 32 bit Intel/AMD (x86/i686)
-* ```:arm64v8```, ```:aarch64``` - 64 bit ARM (ARMv8/aarch64)
-* ```:arm32v7```, ```:armhf``` - 32 bit ARM (ARMv7/armhf)
+  * ```:amd64```, ```:latest``` - 64 bit Intel/AMD (x86_64/amd64)
+  * ```:arm64v8```, ```:aarch64``` - 64 bit ARM (ARMv8/aarch64)
+  * ```:arm32v7```, ```:armhf``` - 32 bit ARM (ARMv7/armhf)
 
 #### PLEASE CHECK TAGS BELOW FOR SUPPORTED ARCHITECTURES, THE ABOVE IS A LIST OF EXPLANATION
 
@@ -41,11 +40,27 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 * ```:latest```, ```:amd64``` latest branch based on amd64
 * ```:master``` master branch usually inline with latest
 * ```:git``` latest branch with git
-* ```:git-ssh``` latest branch with git and ssh auth
-* ```:v0.0.0``` version number related to docker version
+* ```:git-ssh``` latest branch with git and ssh auth for private repo
+* ```:aarch64```, ```:arm64v8``` Armv8 based on latest tag but arm64 architecture
+* ```:aarch64-git```, ```:arm64v8-git``` Armv8 based on latest tag but arm64 architecture and includes git
+* ```:aarch64-git-ssh```, ```:arm64v8-git-ssh``` Armv8 based on latest tag but arm64 architecture and includes git and ssh auth for private repo
 * ```:armhf```, ```:arm32v7``` Armv7 based on latest tag but arm architecture
 * ```:armhf-git```, ```:arm32v7-git``` Armv7 based on latest tag but arm architecture and includes git
-* ```:armhf-git-ssh```, ```:arm32v7-git-ssh``` Armv7 based on latest tag but arm architecture and includes git and ssh auth
+* ```:armhf-git-ssh```, ```:arm32v7-git-ssh``` Armv7 based on latest tag but arm architecture and includes git and ssh auth for private repo
+
+## Layers & Sizes
+
+![Version](https://img.shields.io/badge/version-amd64-blue.svg?style=for-the-badge)
+![MicroBadger Layers (tag)](https://img.shields.io/microbadger/layers/yobasystems/alpine-nginx/amd64.svg?style=for-the-badge)
+![MicroBadger Size (tag)](https://img.shields.io/microbadger/image-size/yobasystems/alpine-nginx/amd64.svg?style=for-the-badge)
+
+![Version](https://img.shields.io/badge/version-aarch64-blue.svg?style=for-the-badge)
+![MicroBadger Layers (tag)](https://img.shields.io/microbadger/layers/yobasystems/alpine-nginx/aarch64.svg?style=for-the-badge)
+![MicroBadger Size (tag)](https://img.shields.io/microbadger/image-size/yobasystems/alpine-nginx/aarch64.svg?style=for-the-badge)
+
+![Version](https://img.shields.io/badge/version-armhf-blue.svg?style=for-the-badge)
+![MicroBadger Layers (tag)](https://img.shields.io/microbadger/layers/yobasystems/alpine-nginx/armhf.svg?style=for-the-badge)
+![MicroBadger Size (tag)](https://img.shields.io/microbadger/image-size/yobasystems/alpine-nginx/armhf.svg?style=for-the-badge)
 
 ## Environment Variables:
 

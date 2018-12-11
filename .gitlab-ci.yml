@@ -7,13 +7,17 @@ amd64 nginx build:
   stage: build
   tags:
     - amd64
+  variables:
+    CI_APPLICATION_REPOSITORY: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG
+    CI_APPLICATION_TAG: $CI_COMMIT_SHA
   script:
     - apk add --update git
     - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token "$DOCKER_REGISTRY" --password-stdin
-    - cd alpine-nginx/ && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:master -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:latest -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64 .
+    - cd alpine-nginx/ && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:master -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:latest -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64 -t ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG} .
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:master
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:latest
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64
+    - docker push ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG}
 
 amd64 nginx-git build:
   stage: yobasystems/alpine-docker:dind
@@ -134,6 +138,32 @@ arm32v7 nginx-git-ssh build:
     - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin && docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:armhf-git-ssh
     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" quay.io --password-stdin && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:arm32v7-git-ssh
     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" quay.io --password-stdin && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:armhf-git-ssh
+
+container_scanning:
+  stage: deploy
+  image: yobasystems/alpine-docker:amd64
+  tags:
+    - security
+  variables:
+    DOCKER_DRIVER: overlay2
+    CI_APPLICATION_REPOSITORY: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG
+    CI_APPLICATION_TAG: $CI_COMMIT_SHA
+    CLAIR_HOST: $CLAIR_URL
+  allow_failure: true
+  services:
+    - yobasystems/alpine-docker:amd64-dind
+  script:
+    - apk add -U wget ca-certificates
+    - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token "$DOCKER_REGISTRY" --password-stdin
+    - docker pull ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG}
+    - wget https://github.com/arminc/clair-scanner/releases/download/v8/clair-scanner_linux_amd64
+    - mv clair-scanner_linux_amd64 clair-scanner
+    - chmod +x clair-scanner
+    - touch clair-whitelist.yml
+    - ./clair-scanner -c ${CLAIR_HOST} --ip $(hostname -i) -r gl-container-scanning-report.json -l clair.log -w clair-whitelist.yml ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG} || true
+  artifacts:
+    reports:
+      container_scanning: gl-container-scanning-report.json
 
 Github Mirror:
   stage: deploy
