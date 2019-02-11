@@ -1,6 +1,6 @@
-FROM yobasystems/alpine:3.8.1-armhf
+FROM yobasystems/alpine:3.9.0-armhf
 LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM32v7/armhf"
-LABEL nginx-version="1.15.7" alpine-version="3.8.1" build="11-dec-2018"
+LABEL nginx-version="1.15.8" alpine-version="3.9.0" build="11-Feb-2019"
 
 ENV REPO="https://yobasystems@bitbucket.org/yobasystems/default-index.git"
 
@@ -9,9 +9,9 @@ RUN \
   runtime_pkgs="ca-certificates openssl pcre zlib git" && \
   apk --update add ${build_pkgs} ${runtime_pkgs} && \
   cd /tmp && \
-  wget http://nginx.org/download/nginx-1.15.7.tar.gz && \
-  tar xzf nginx-1.15.7.tar.gz && \
-  cd /tmp/nginx-1.15.7 && \
+  wget http://nginx.org/download/nginx-1.15.8.tar.gz && \
+  tar xzf nginx-1.15.8.tar.gz && \
+  cd /tmp/nginx-1.15.8 && \
   ./configure \
     --prefix=/etc/nginx \
     --sbin-path=/usr/sbin/nginx \

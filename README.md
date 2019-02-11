@@ -4,14 +4,14 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/alpine-nginx.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/alpine-nginx/)
 [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/alpine-nginx.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/alpine-nginx/)
 
-[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.8.1-green.svg?style=for-the-badge)](http://alpinelinux.org/)
-[![Nginx Version](https://img.shields.io/badge/Nginx%20version-v1.15.7-green.svg?style=for-the-badge)](http://nginx.org/en/)
+[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.9.0-green.svg?style=for-the-badge)](http://alpinelinux.org/)
+[![Nginx Version](https://img.shields.io/badge/Nginx%20version-v1.15.8-green.svg?style=for-the-badge)](http://nginx.org/en/)
 
 
-This Docker image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasystems/alpine-nginx/) is based on the minimal [Alpine Linux](http://alpinelinux.org/) with version 1.15.7 of [NGINX](http://nginx.org/en/)
+This Docker image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasystems/alpine-nginx/) is based on the minimal [Alpine Linux](http://alpinelinux.org/) with version 1.15.8 of [NGINX](http://nginx.org/en/)
 
 ##### Alpine Version 3.8.1 (Released September 11, 2018)
-##### NGINX Version 1.15.7
+##### NGINX Version 1.15.8
 
 ----
 
