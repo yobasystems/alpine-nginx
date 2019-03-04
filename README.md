@@ -37,10 +37,13 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 
 ## Tags
 
-* ```:latest```, ```:amd64``` latest branch based on amd64
+* ```:latest``` latest branch based (Automatic Architecture Selection)
 * ```:master``` master branch usually inline with latest
-* ```:git``` latest branch with git
-* ```:git-ssh``` latest branch with git and ssh auth for private repo
+* ```:git``` latest branch with git (Automatic Architecture Selection)
+* ```:git-ssh``` latest branch with git and ssh auth for private repo (Automatic Architecture Selection)
+* ```:amd64```, ```:x86_64``` amd64 based on latest tag but amd64 architecture
+* ```:amd64-git```, ```:x86_64-git``` amd64 based on latest tag but amd64 architecture and includes git
+* ```:amd64-git-ssh```, ```:x86_64-git-ssh``` amd64 based on latest tag but amd64 architecture and includes git and ssh auth for private repo
 * ```:aarch64```, ```:arm64v8``` Armv8 based on latest tag but arm64 architecture
 * ```:aarch64-git```, ```:arm64v8-git``` Armv8 based on latest tag but arm64 architecture and includes git
 * ```:aarch64-git-ssh```, ```:arm64v8-git-ssh``` Armv8 based on latest tag but arm64 architecture and includes git and ssh auth for private repo
