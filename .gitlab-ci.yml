@@ -1,5 +1,7 @@
 stages:
   - build
+  - test
+  - manifest
   - deploy
 
 amd64 nginx build:
