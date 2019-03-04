@@ -7,7 +7,7 @@ LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" \
       architecture="arm32v7/armhf" \
       nginx-version="1.15.9" \
       alpine-version="3.9.0" \
-      build="11-Feb-2019" \
+      build="04-Mar-2019" \
       org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.name="alpine-nginx" \
       org.label-schema.description="Nginx Docker image running on Alpine Linux" \
