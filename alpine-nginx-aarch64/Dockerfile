@@ -1,15 +1,30 @@
 FROM yobasystems/alpine:3.9.0-aarch64
-LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM64v8/aarch64"
-LABEL nginx-version="1.15.8" alpine-version="3.9.0" build="11-Feb-2019"
+
+ARG BUILD_DATE
+ARG VCS_REF
+
+LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" \
+      architecture="arm64v8/aarch64" \
+      nginx-version="1.15.9" \
+      alpine-version="3.9.0" \
+      build="11-Feb-2019" \
+      org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.name="alpine-nginx" \
+      org.label-schema.description="Nginx Docker image running on Alpine Linux" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url="https://github.com/yobasystems/alpine-nginx" \
+      org.label-schema.vendor="Yoba Systems" \
+      org.label-schema.version="1.15.9" \
+      org.label-schema.schema-version="1.0"
 
 RUN \
   build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" && \
   runtime_pkgs="ca-certificates openssl pcre zlib" && \
   apk --update add ${build_pkgs} ${runtime_pkgs} && \
   cd /tmp && \
-  wget http://nginx.org/download/nginx-1.15.8.tar.gz && \
-  tar xzf nginx-1.15.8.tar.gz && \
-  cd /tmp/nginx-1.15.8 && \
+  wget http://nginx.org/download/nginx-1.15.9.tar.gz && \
+  tar xzf nginx-1.15.9.tar.gz && \
+  cd /tmp/nginx-1.15.9 && \
   ./configure \
     --prefix=/etc/nginx \
     --sbin-path=/usr/sbin/nginx \
