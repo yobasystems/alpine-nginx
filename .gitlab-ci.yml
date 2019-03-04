@@ -301,14 +301,14 @@ gitlab manifest creation git-ssh tag:
     - mkdir /root/.docker
     - 'echo -e "{\n    \"experimental\": \"enabled\"\n}\n" >> ~/.docker/config.json'
     - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token "$DOCKER_REGISTRY" --password-stdin
-    - docker pull $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64-git
-    - docker pull $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm32v7-git
-    - docker pull $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm64v8-git
-    - docker manifest create $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64-git-ssh $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm32v7-git-ssh $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm64v8-git
+    - docker pull $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64-git-ssh
+    - docker pull $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm32v7-git-ssh
+    - docker pull $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm64v8-git-ssh
+    - docker manifest create $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64-git-ssh $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm32v7-git-ssh $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm64v8-git-ssh
     - docker manifest annotate $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64-git-ssh --os linux --arch amd64
     - docker manifest annotate $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm32v7-git-ssh --os linux --arch arm
     - docker manifest annotate $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm64v8-git-ssh --os linux --arch arm64
-    - docker manifest push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git
+    - docker manifest push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh
 
 dockerhub manifest creation git-ssh tag:
   stage: yobasystems/alpine-docker:amd64-dind
@@ -319,14 +319,14 @@ dockerhub manifest creation git-ssh tag:
     - mkdir /root/.docker
     - 'echo -e "{\n    \"experimental\": \"enabled\"\n}\n" >> ~/.docker/config.json'
     - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-    - docker pull $DOCKER_REGISTRY_DOCKERHUB_REPO:amd64-git
-    - docker pull $DOCKER_REGISTRY_DOCKERHUB_REPO:arm32v7-git
-    - docker pull $DOCKER_REGISTRY_DOCKERHUB_REPO:arm64v8-git
-    - docker manifest create $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh $DOCKER_REGISTRY_DOCKERHUB_REPO:amd64-git-ssh $DOCKER_REGISTRY_DOCKERHUB_REPO:arm32v7-git-ssh $DOCKER_REGISTRY_DOCKERHUB_REPO:arm64v8-git
+    - docker pull $DOCKER_REGISTRY_DOCKERHUB_REPO:amd64-git-ssh
+    - docker pull $DOCKER_REGISTRY_DOCKERHUB_REPO:arm32v7-git-ssh
+    - docker pull $DOCKER_REGISTRY_DOCKERHUB_REPO:arm64v8-git-ssh
+    - docker manifest create $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh $DOCKER_REGISTRY_DOCKERHUB_REPO:amd64-git-ssh $DOCKER_REGISTRY_DOCKERHUB_REPO:arm32v7-git-ssh $DOCKER_REGISTRY_DOCKERHUB_REPO:arm64v8-git-ssh
     - docker manifest annotate $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh $DOCKER_REGISTRY_DOCKERHUB_REPO:amd64-git-ssh --os linux --arch amd64
     - docker manifest annotate $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh $DOCKER_REGISTRY_DOCKERHUB_REPO:arm32v7-git-ssh --os linux --arch arm
     - docker manifest annotate $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh $DOCKER_REGISTRY_DOCKERHUB_REPO:arm64v8-git-ssh --os linux --arch arm64
-    - docker manifest push $DOCKER_REGISTRY_DOCKERHUB_REPO:git
+    - docker manifest push $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh
 
 Github Mirror:
   stage: deploy
