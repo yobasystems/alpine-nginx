@@ -23,15 +23,15 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 
 ## Features
 
-  * Minimal size only, minimal layers
-  * Memory usage is minimal on a simple install.
-  * Auto git clone from repo with `yobasystems/alpine-nginx:git` tag
+* Minimal size only, minimal layers
+* Memory usage is minimal on a simple install.
+* Auto git clone from repo with `yobasystems/alpine-nginx:git` tag
 
 ## Architectures
 
-  * ```:amd64```, ```:x86_64``` - 64 bit Intel/AMD (x86_64/amd64)
-  * ```:arm64v8```, ```:aarch64``` - 64 bit ARM (ARMv8/aarch64)
-  * ```:arm32v7```, ```:armhf``` - 32 bit ARM (ARMv7/armhf)
+* ```:amd64```, ```:x86_64``` - 64 bit Intel/AMD (x86_64/amd64)
+* ```:arm64v8```, ```:aarch64``` - 64 bit ARM (ARMv8/aarch64)
+* ```:arm32v7```, ```:armhf``` - 32 bit ARM (ARMv7/armhf)
 
 #### PLEASE CHECK TAGS BELOW FOR SUPPORTED ARCHITECTURES, THE ABOVE IS A LIST OF EXPLANATION
 
