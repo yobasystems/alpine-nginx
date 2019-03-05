@@ -3,19 +3,20 @@ FROM yobasystems/alpine:3.9.0-armhf
 ARG BUILD_DATE
 ARG VCS_REF
 
-LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" \
-      architecture="arm32v7/armhf" \
-      nginx-version="1.15.9" \
-      alpine-version="3.9.0" \
-      build="04-Mar-2019" \
-      org.label-schema.build-date=$BUILD_DATE \
-      org.label-schema.name="alpine-nginx" \
-      org.label-schema.description="Nginx Docker image running on Alpine Linux" \
-      org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url="https://github.com/yobasystems/alpine-nginx" \
-      org.label-schema.vendor="Yoba Systems" \
-      org.label-schema.version="1.15.9" \
-      org.label-schema.schema-version="1.0"
+LABEL maintainer="Dominic Taylor <dominic@yobasystems.co.uk>" \
+    architecture="arm32v7/armhf" \
+    nginx-version="1.15.9" \
+    alpine-version="3.9.0" \
+    build="05-Mar-2019" \
+    org.opencontainers.image.title="alpine-nginx" \
+    org.opencontainers.image.description="Nginx Docker image running on Alpine Linux" \
+    org.opencontainers.image.authors="Dominic Taylor <dominic@yobasystems.co.uk>" \
+    org.opencontainers.image.vendor="Yoba Systems" \
+    org.opencontainers.image.version="v1.15.9" \
+    org.opencontainers.image.url="https://hub.docker.com/r/yobasystems/alpine-nginx/" \
+    org.opencontainers.image.source="https://github.com/yobasystems/alpine-nginx" \
+    org.opencontainers.image.revision=$VCS_REF \
+    org.opencontainers.image.created=$BUILD_DATE
 
 ENV REPO="https://yobasystems@bitbucket.org/yobasystems/default-index.git"
 

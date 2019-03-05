@@ -29,7 +29,7 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 
 ## Architectures
 
-  * ```:amd64```, ```:latest``` - 64 bit Intel/AMD (x86_64/amd64)
+  * ```:amd64```, ```:x86_64``` - 64 bit Intel/AMD (x86_64/amd64)
   * ```:arm64v8```, ```:aarch64``` - 64 bit ARM (ARMv8/aarch64)
   * ```:arm32v7```, ```:armhf``` - 32 bit ARM (ARMv7/armhf)
 

@@ -195,7 +195,7 @@ arm32v7 nginx-git-ssh build:
     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" quay.io --password-stdin && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:armhf-git-ssh
 
 container_scanning:
-  stage: deploy
+  stage: test
   image: yobasystems/alpine-docker:amd64
   tags:
     - security
