@@ -57,7 +57,6 @@ RUN \
     --with-mail \
     --with-mail_ssl_module \
     --with-file-aio \
-    --with-ipv6 \
     --with-threads \
     --with-stream \
     --with-stream_ssl_module \
