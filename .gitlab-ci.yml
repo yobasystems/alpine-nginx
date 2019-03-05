@@ -5,7 +5,7 @@ stages:
   - deploy
 
 amd64 nginx build:
-  stage: yobasystems/alpine-docker:amd64-dind
+  image: yobasystems/alpine-docker:amd64-dind
   stage: build
   tags:
     - amd64
@@ -27,7 +27,7 @@ amd64 nginx build:
     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" quay.io --password-stdin && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:x86_64
 
 amd64 nginx-git build:
-  stage: yobasystems/alpine-docker:amd64-dind
+  image: yobasystems/alpine-docker:amd64-dind
   stage: build
   tags:
     - amd64
@@ -48,7 +48,7 @@ amd64 nginx-git build:
     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" quay.io --password-stdin && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:x86_64-git
 
 amd64 nginx-git-ssh build:
-  stage: yobasystems/alpine-docker:amd64-dind
+  image: yobasystems/alpine-docker:amd64-dind
   stage: build
   tags:
     - amd64
@@ -69,7 +69,7 @@ amd64 nginx-git-ssh build:
     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" quay.io --password-stdin && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:x86_64-git-ssh
 
 arm64v8 nginx build:
-  stage: yobasystems/alpine-docker:aarch64-dind
+  image: yobasystems/alpine-docker:aarch64-dind
   stage: build
   tags:
     - aarch64
@@ -90,7 +90,7 @@ arm64v8 nginx build:
     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" quay.io --password-stdin && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:aarch64
 
 arm64v8 nginx-git build:
-  stage: yobasystems/alpine-docker:aarch64-dind
+  image: yobasystems/alpine-docker:aarch64-dind
   stage: build
   tags:
     - aarch64
@@ -111,7 +111,7 @@ arm64v8 nginx-git build:
     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" quay.io --password-stdin && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:aarch64-git
 
 arm64v8 nginx-git-ssh build:
-  stage: yobasystems/alpine-docker:aarch64-dind
+  image: yobasystems/alpine-docker:aarch64-dind
   stage: build
   tags:
     - aarch64
@@ -132,7 +132,7 @@ arm64v8 nginx-git-ssh build:
     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" quay.io --password-stdin && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:aarch64-git-ssh
 
 arm32v7 nginx build:
-  stage: yobasystems/alpine-docker:armhf-dind
+  image: yobasystems/alpine-docker:armhf-dind
   stage: build
   tags:
     - armhf
@@ -153,7 +153,7 @@ arm32v7 nginx build:
     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" quay.io --password-stdin && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:armhf
 
 arm32v7 nginx-git build:
-  stage: yobasystems/alpine-docker:armhf-dind
+  image: yobasystems/alpine-docker:armhf-dind
   stage: build
   tags:
     - armhf
@@ -174,7 +174,7 @@ arm32v7 nginx-git build:
     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" quay.io --password-stdin && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:armhf-git
 
 arm32v7 nginx-git-ssh build:
-  stage: yobasystems/alpine-docker:armhf-dind
+  image: yobasystems/alpine-docker:armhf-dind
   stage: build
   tags:
     - armhf
@@ -221,7 +221,7 @@ container_scanning:
       container_scanning: gl-container-scanning-report.json
 
 gitlab manifest creation:
-  stage: yobasystems/alpine-docker:amd64-dind
+  image: yobasystems/alpine-docker:amd64-dind
   stage: manifest
   tags:
     - amd64
@@ -239,7 +239,7 @@ gitlab manifest creation:
     - docker manifest push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:latest
 
 dockerhub manifest creation:
-  stage: yobasystems/alpine-docker:amd64-dind
+  image: yobasystems/alpine-docker:amd64-dind
   stage: manifest
   tags:
     - amd64
@@ -257,7 +257,7 @@ dockerhub manifest creation:
     - docker manifest push $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
 
 gitlab manifest creation git tag:
-  stage: yobasystems/alpine-docker:amd64-dind
+  image: yobasystems/alpine-docker:amd64-dind
   stage: manifest
   tags:
     - amd64
@@ -275,7 +275,7 @@ gitlab manifest creation git tag:
     - docker manifest push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git
 
 dockerhub manifest creation git tag:
-  stage: yobasystems/alpine-docker:amd64-dind
+  image: yobasystems/alpine-docker:amd64-dind
   stage: manifest
   tags:
     - amd64
@@ -293,7 +293,7 @@ dockerhub manifest creation git tag:
     - docker manifest push $DOCKER_REGISTRY_DOCKERHUB_REPO:git
 
 gitlab manifest creation git-ssh tag:
-  stage: yobasystems/alpine-docker:amd64-dind
+  image: yobasystems/alpine-docker:amd64-dind
   stage: manifest
   tags:
     - amd64
@@ -311,7 +311,7 @@ gitlab manifest creation git-ssh tag:
     - docker manifest push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh
 
 dockerhub manifest creation git-ssh tag:
-  stage: yobasystems/alpine-docker:amd64-dind
+  image: yobasystems/alpine-docker:amd64-dind
   stage: manifest
   tags:
     - amd64
