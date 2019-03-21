@@ -42,14 +42,14 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 * ```:git``` latest branch with git (Automatic Architecture Selection)
 * ```:git-ssh``` latest branch with git and ssh auth for private repo (Automatic Architecture Selection)
 * ```:amd64```, ```:x86_64``` amd64 based on latest tag but amd64 architecture
-* ```:amd64-git```, ```:x86_64-git``` amd64 based on latest tag but amd64 architecture and includes git
-* ```:amd64-git-ssh```, ```:x86_64-git-ssh``` amd64 based on latest tag but amd64 architecture and includes git and ssh auth for private repo
+* ```:git-amd64```, ```:git-x86_64``` amd64 based on latest tag but amd64 architecture and includes git
+* ```:git-ssh-amd64```, ```:git-ssh-x86_64``` amd64 based on latest tag but amd64 architecture and includes git and ssh auth for private repo
 * ```:aarch64```, ```:arm64v8``` Armv8 based on latest tag but arm64 architecture
-* ```:aarch64-git```, ```:arm64v8-git``` Armv8 based on latest tag but arm64 architecture and includes git
-* ```:aarch64-git-ssh```, ```:arm64v8-git-ssh``` Armv8 based on latest tag but arm64 architecture and includes git and ssh auth for private repo
+* ```:aarch64-git```, ```:git-arm64v8``` Armv8 based on latest tag but arm64 architecture and includes git
+* ```:aarch64-git-ssh```, ```:git-ssh-arm64v8``` Armv8 based on latest tag but arm64 architecture and includes git and ssh auth for private repo
 * ```:armhf```, ```:arm32v7``` Armv7 based on latest tag but arm architecture
-* ```:armhf-git```, ```:arm32v7-git``` Armv7 based on latest tag but arm architecture and includes git
-* ```:armhf-git-ssh```, ```:arm32v7-git-ssh``` Armv7 based on latest tag but arm architecture and includes git and ssh auth for private repo
+* ```:git-armhf```, ```:git-arm32v7``` Armv7 based on latest tag but arm architecture and includes git
+* ```:git-ssh-armhf```, ```:git-ssh-arm32v7``` Armv7 based on latest tag but arm architecture and includes git and ssh auth for private repo
 
 ## Layers & Sizes
 
