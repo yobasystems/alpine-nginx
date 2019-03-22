@@ -18,15 +18,16 @@ LABEL maintainer="Dominic Taylor <dominic@yobasystems.co.uk>" \
     org.opencontainers.image.revision=$VCS_REF \
     org.opencontainers.image.created=$BUILD_DATE
 
+ENV NGINX_VERSION=1.15.9
+
 RUN \
   build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" && \
-  runtime_pkgs="ca-certificates geoip openssl pcre zlib tzdata" && \
+  runtime_pkgs="ca-certificates openssl pcre zlib tzdata git" && \
   apk --no-cache add ${build_pkgs} ${runtime_pkgs} && \
-  ln -s /usr/share/GeoIP /usr/local/share/GeoIP && \
   cd /tmp && \
-  wget http://nginx.org/download/nginx-1.15.9.tar.gz && \
-  tar xzf nginx-1.15.9.tar.gz && \
-  cd /tmp/nginx-1.15.9 && \
+  wget https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz && \
+  tar xzf nginx-${NGINX_VERSION}.tar.gz && \
+  cd /tmp/nginx-${NGINX_VERSION} && \
   ./configure \
     --prefix=/etc/nginx \
     --sbin-path=/usr/sbin/nginx \
@@ -44,7 +45,6 @@ RUN \
     --group=nginx \
     --with-http_ssl_module \
     --with-http_realip_module \
-    --with-http_geoip_module \
     --with-http_addition_module \
     --with-http_sub_module \
     --with-http_dav_module \
@@ -63,7 +63,6 @@ RUN \
     --with-stream \
     --with-stream_ssl_module \
     --with-stream_realip_module \
-    --with-stream_geoip_module \
     --with-http_slice_module \
     --with-http_v2_module && \
   make && \
