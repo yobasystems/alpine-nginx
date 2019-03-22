@@ -22,6 +22,7 @@ RUN \
   build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" && \
   runtime_pkgs="ca-certificates geoip openssl pcre zlib tzdata" && \
   apk --no-cache add ${build_pkgs} ${runtime_pkgs} && \
+  ln -s /usr/share/GeoIP /usr/local/GeoIP && \
   cd /tmp && \
   wget http://nginx.org/download/nginx-1.15.9.tar.gz && \
   tar xzf nginx-1.15.9.tar.gz && \
