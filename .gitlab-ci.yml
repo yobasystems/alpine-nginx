@@ -15,7 +15,7 @@ amd64 nginx build:
   script:
     - export COMMIT_TIME=$(git show -s --format=%ct $CI_APPLICATION_TAG)
     - echo "$COMMIT_TIME" && echo "$CI_COMMIT_SHORT_SHA"
-    - apk add --update git
+    - apk add --no-cache git
     - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token "$DOCKER_REGISTRY" --password-stdin
     - cd alpine-nginx-amd64/ && docker build --build-arg VCS_REF=${CI_COMMIT_SHORT_SHA} --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:amd64 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:amd64 -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:x86_64 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:x86_64 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:x86_64 -t ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG} .
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64
@@ -37,7 +37,7 @@ amd64 nginx-git build:
   script:
     - export COMMIT_TIME=$(git show -s --format=%ct $CI_APPLICATION_TAG)
     - echo "$COMMIT_TIME" && echo "$CI_COMMIT_SHORT_SHA"
-    - apk add --update git
+    - apk add --no-cache git
     - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token "$DOCKER_REGISTRY" --password-stdin
     - cd alpine-nginx-git-amd64/ && docker build --build-arg VCS_REF=${CI_COMMIT_SHORT_SHA} --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-amd64 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-amd64 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-amd64 -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-x86_64 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-x86_64 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-x86_64 .
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-amd64
@@ -58,7 +58,7 @@ amd64 nginx-git-ssh build:
   script:
     - export COMMIT_TIME=$(git show -s --format=%ct $CI_APPLICATION_TAG)
     - echo "$COMMIT_TIME" && echo "$CI_COMMIT_SHORT_SHA"
-    - apk add --update git
+    - apk add --no-cache git
     - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token "$DOCKER_REGISTRY" --password-stdin
     - cd alpine-nginx-git-ssh-amd64/ && docker build --build-arg VCS_REF=${CI_COMMIT_SHORT_SHA} --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-amd64 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh-amd64 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-ssh-amd64 -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-x86_64 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh-x86_64 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-ssh-x86_64 .
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-amd64
@@ -79,7 +79,7 @@ arm64v8 nginx build:
   script:
     - export COMMIT_TIME=$(git show -s --format=%ct $CI_APPLICATION_TAG)
     - echo "$COMMIT_TIME" && echo "$CI_COMMIT_SHORT_SHA"
-    - apk add --update git
+    - apk add --no-cache git
     - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token "$DOCKER_REGISTRY" --password-stdin
     - cd alpine-nginx-aarch64/ && docker build --build-arg VCS_REF=${CI_COMMIT_SHORT_SHA} --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm64v8 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:arm64v8 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:arm64v8 -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:aarch64 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:aarch64 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:aarch64 .
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm64v8
@@ -100,7 +100,7 @@ arm64v8 nginx-git build:
   script:
     - export COMMIT_TIME=$(git show -s --format=%ct $CI_APPLICATION_TAG)
     - echo "$COMMIT_TIME" && echo "$CI_COMMIT_SHORT_SHA"
-    - apk add --update git
+    - apk add --no-cache git
     - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token "$DOCKER_REGISTRY" --password-stdin
     - cd alpine-nginx-git-aarch64/ && docker build --build-arg VCS_REF=${CI_COMMIT_SHORT_SHA} --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-arm64v8 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-arm64v8 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-arm64v8 -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-aarch64 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-aarch64 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-aarch64 .
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-arm64v8
@@ -121,7 +121,7 @@ arm64v8 nginx-git-ssh build:
   script:
     - export COMMIT_TIME=$(git show -s --format=%ct $CI_APPLICATION_TAG)
     - echo "$COMMIT_TIME" && echo "$CI_COMMIT_SHORT_SHA"
-    - apk add --update git
+    - apk add --no-cache git
     - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token "$DOCKER_REGISTRY" --password-stdin
     - cd alpine-nginx-git-ssh-aarch64/ && docker build --build-arg VCS_REF=${CI_COMMIT_SHORT_SHA} --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-arm64v8 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh-arm64v8 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-ssh-arm64v8 -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-aarch64 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh-aarch64 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-ssh-aarch64 .
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-arm64v8
@@ -142,7 +142,7 @@ arm32v7 nginx build:
   script:
     - export COMMIT_TIME=$(git show -s --format=%ct $CI_APPLICATION_TAG)
     - echo "$COMMIT_TIME" && echo "$CI_COMMIT_SHORT_SHA"
-    - apk add --update git
+    - apk add --no-cache git
     - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token "$DOCKER_REGISTRY" --password-stdin
     - cd alpine-nginx-armhf/ && docker build --build-arg VCS_REF=${CI_COMMIT_SHORT_SHA} --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm32v7 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:arm32v7 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:arm32v7 -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:armhf -t $DOCKER_REGISTRY_DOCKERHUB_REPO:armhf -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:armhf .
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm32v7
@@ -163,7 +163,7 @@ arm32v7 nginx-git build:
   script:
     - export COMMIT_TIME=$(git show -s --format=%ct $CI_APPLICATION_TAG)
     - echo "$COMMIT_TIME" && echo "$CI_COMMIT_SHORT_SHA"
-    - apk add --update git
+    - apk add --no-cache git
     - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token "$DOCKER_REGISTRY" --password-stdin
     - cd alpine-nginx-git-armhf/ && docker build --build-arg VCS_REF=${CI_COMMIT_SHORT_SHA} --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-arm32v7 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-arm32v7 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-arm32v7 -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-armhf -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-armhf -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-armhf .
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-arm32v7
@@ -184,7 +184,7 @@ arm32v7 nginx-git-ssh build:
   script:
     - export COMMIT_TIME=$(git show -s --format=%ct $CI_APPLICATION_TAG)
     - echo "$COMMIT_TIME" && echo "$CI_COMMIT_SHORT_SHA"
-    - apk add --update git
+    - apk add --no-cache git
     - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token "$DOCKER_REGISTRY" --password-stdin
     - cd alpine-nginx-git-ssh-armhf/ && docker build --build-arg VCS_REF=${CI_COMMIT_SHORT_SHA} --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-arm32v7 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh-arm32v7 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-ssh-arm32v7 -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-armhf -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh-armhf -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-ssh-armhf .
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-arm32v7

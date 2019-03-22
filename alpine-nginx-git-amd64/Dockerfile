@@ -22,8 +22,8 @@ ENV REPO="https://yobasystems@bitbucket.org/yobasystems/default-index.git"
 
 RUN \
   build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" && \
-  runtime_pkgs="ca-certificates openssl pcre zlib git" && \
-  apk --update add ${build_pkgs} ${runtime_pkgs} && \
+  runtime_pkgs="ca-certificates openssl pcre zlib tzdata git" && \
+  apk --no-cache add ${build_pkgs} ${runtime_pkgs} && \
   cd /tmp && \
   wget http://nginx.org/download/nginx-1.15.9.tar.gz && \
   tar xzf nginx-1.15.9.tar.gz && \
@@ -45,6 +45,7 @@ RUN \
     --group=nginx \
     --with-http_ssl_module \
     --with-http_realip_module \
+    --with-http_geoip_module \
     --with-http_addition_module \
     --with-http_sub_module \
     --with-http_dav_module \
@@ -62,12 +63,15 @@ RUN \
     --with-threads \
     --with-stream \
     --with-stream_ssl_module \
+    --with-stream_realip_module \
+    --with-stream_geoip_module \
     --with-http_slice_module \
     --with-http_v2_module && \
   make && \
   make install && \
   sed -i -e 's/#access_log  logs\/access.log  main;/access_log \/dev\/stdout;/' -e 's/#error_log  logs\/error.log  notice;/error_log stderr notice;/' /etc/nginx/nginx.conf && \
-  adduser -D nginx && \
+  addgroup -S nginx && \
+  adduser -D -S -h /var/cache/nginx -s /sbin/nologin -G nginx nginx && \
   rm -rf /tmp/* && \
   apk del ${build_pkgs} && \
   rm -rf /var/cache/apk/* && \
