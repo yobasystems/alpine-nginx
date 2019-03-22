@@ -20,7 +20,7 @@ LABEL maintainer="Dominic Taylor <dominic@yobasystems.co.uk>" \
 
 RUN \
   build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" && \
-  runtime_pkgs="ca-certificates openssl pcre zlib tzdata" && \
+  runtime_pkgs="ca-certificates geoip openssl pcre zlib tzdata" && \
   apk --no-cache add ${build_pkgs} ${runtime_pkgs} && \
   cd /tmp && \
   wget http://nginx.org/download/nginx-1.15.9.tar.gz && \
