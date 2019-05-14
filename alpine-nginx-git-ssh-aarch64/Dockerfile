@@ -1,4 +1,4 @@
-FROM yobasystems/alpine:3.9.3-aarch64
+FROM yobasystems/alpine:3.9.4-aarch64
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -6,8 +6,8 @@ ARG VCS_REF
 LABEL maintainer="Dominic Taylor <dominic@yobasystems.co.uk>" \
     architecture="arm64v8/aarch64" \
     nginx-version="1.16.0" \
-    alpine-version="3.9.3" \
-    build="06-May-2019" \
+    alpine-version="3.9.4" \
+    build="14-May-2019" \
     org.opencontainers.image.title="alpine-nginx" \
     org.opencontainers.image.description="Nginx Docker image running on Alpine Linux" \
     org.opencontainers.image.authors="Dominic Taylor <dominic@yobasystems.co.uk>" \
