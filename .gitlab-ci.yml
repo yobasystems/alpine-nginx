@@ -369,7 +369,7 @@ dockerhub manifest creation git-ssh tag:
     - docker manifest annotate $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh-arm64v8 --os linux --arch arm64
     - docker manifest push $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh
 
-gitlab manifest creation:
+gitlab manifest stable creation:
   image: yobasystems/alpine-docker:dind
   stage: manifest
   tags:
@@ -387,7 +387,7 @@ gitlab manifest creation:
     - docker manifest annotate $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable-arm64v8 --os linux --arch arm64
     - docker manifest push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable
 
-dockerhub manifest creation:
+dockerhub manifest stable creation:
   image: yobasystems/alpine-docker:dind
   stage: manifest
   tags:
