@@ -1,25 +1,24 @@
-FROM yobasystems/alpine:3.10.0-aarch64
+FROM yobasystems/alpine:3.10.0-armhf
 
 ARG BUILD_DATE
 ARG VCS_REF
 
 LABEL maintainer="Dominic Taylor <dominic@yobasystems.co.uk>" \
-    architecture="arm64v8/aarch64" \
-    nginx-version="1.17.1" \
+    architecture="arm32v7/armhf" \
+    nginx-version="1.16.0" \
     alpine-version="3.10.0" \
     build="15-Jul-019" \
     org.opencontainers.image.title="alpine-nginx" \
     org.opencontainers.image.description="Nginx Docker image running on Alpine Linux" \
     org.opencontainers.image.authors="Dominic Taylor <dominic@yobasystems.co.uk>" \
     org.opencontainers.image.vendor="Yoba Systems" \
-    org.opencontainers.image.version="v1.17.1" \
+    org.opencontainers.image.version="v1.16.0" \
     org.opencontainers.image.url="https://hub.docker.com/r/yobasystems/alpine-nginx/" \
     org.opencontainers.image.source="https://github.com/yobasystems/alpine-nginx" \
     org.opencontainers.image.revision=$VCS_REF \
     org.opencontainers.image.created=$BUILD_DATE
 
-ENV REPO="https://yobasystems@bitbucket.org/yobasystems/default-index.git"
-ENV NGINX_VERSION=1.17.1
+ENV NGINX_VERSION=1.16.0
 
 RUN \
   build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" && \
@@ -73,17 +72,13 @@ RUN \
   adduser -D -S -h /var/cache/nginx -s /sbin/nologin -G nginx nginx && \
   rm -rf /tmp/* && \
   apk del ${build_pkgs} && \
-  rm -rf /var/cache/apk/* && \
-  rm -rf /etc/nginx/html/*
+  rm -rf /var/cache/apk/*
 
+COPY files/index.html /etc/nginx/html/
 COPY files/nginx.conf /etc/nginx/nginx.conf
-COPY files/run.sh /run.sh
-
-RUN chmod +x /run.sh && \
-    apk --no-cache add openssh
 
 VOLUME ["/var/cache/nginx"]
 
 EXPOSE 80 443
 
-ENTRYPOINT /run.sh
+CMD ["nginx"]

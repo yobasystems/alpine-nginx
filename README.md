@@ -4,14 +4,16 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/alpine-nginx.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/alpine-nginx/)
 [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/alpine-nginx.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/alpine-nginx/)
 
-[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.9.4-green.svg?style=for-the-badge)](https://alpinelinux.org/)
-[![Nginx Version](https://img.shields.io/badge/Nginx%20version-v1.17.0-green.svg?style=for-the-badge)](https://nginx.org/en/)
+[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.10.0-green.svg?style=for-the-badge)](https://alpinelinux.org/)
+[![Nginx Version](https://img.shields.io/badge/Nginx%20Mainline-v1.17.1-green.svg?style=for-the-badge)](https://nginx.org/en/)
+[![Nginx Version](https://img.shields.io/badge/Nginx%20Stable-v1.16.0-green.svg?style=for-the-badge)](https://nginx.org/en/)
 
 
-This Docker image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasystems/alpine-nginx/) is based on the minimal [Alpine Linux](https://alpinelinux.org/) with version 1.17.0 of [NGINX](https://nginx.org/en/)
+This Docker image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasystems/alpine-nginx/) is based on the minimal [Alpine Linux](https://alpinelinux.org/) with version 1.17.1 of [NGINX](https://nginx.org/en/)
 
-##### Alpine Version 3.9.4 (Released May 09, 2019)
-##### NGINX Version 1.17.0
+##### Alpine Version 3.10.0 (Released Jun 19, 2019)
+##### NGINX Version 1.17.1 (Mainline)
+##### NGINX Version 1.16.0 (Stable)
 
 ----
 
@@ -37,10 +39,12 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 
 ## Tags
 
-* ```:latest``` latest branch based (Automatic Architecture Selection)
-* ```:master``` master branch usually inline with latest
-* ```:git``` latest branch with git (Automatic Architecture Selection)
-* ```:git-ssh``` latest branch with git and ssh auth for private repo (Automatic Architecture Selection)
+* ```:latest``` latest branch based on mainline (Automatic Architecture Selection)
+* ```:master``` master branch usually inline with latest (Automatic Architecture Selection)
+* ```:mainline``` latest branch based on mainline release (Automatic Architecture Selection)
+* ```:stable``` stable branch usually inline with latest stable release (Automatic Architecture Selection)
+* ```:git``` latest branch with git based on mainline (Automatic Architecture Selection)
+* ```:git-ssh``` latest branch with git and ssh auth for private repo based on mainline (Automatic Architecture Selection)
 * ```:amd64```, ```:x86_64``` amd64 based on latest tag but amd64 architecture
 * ```:git-amd64```, ```:git-x86_64``` amd64 based on latest tag but amd64 architecture and includes git
 * ```:git-ssh-amd64```, ```:git-ssh-x86_64``` amd64 based on latest tag but amd64 architecture and includes git and ssh auth for private repo
