@@ -1,4 +1,4 @@
-FROM yobasystems/alpine:3.10.3-armhf
+FROM yobasystems/alpine:3.11.2-armhf
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -6,8 +6,8 @@ ARG VCS_REF
 LABEL maintainer="Dominic Taylor <dominic@yobasystems.co.uk>" \
     architecture="arm32v7/armhf" \
     nginx-version="1.16.1" \
-    alpine-version="3.10.3" \
-    build="23-Oct-19" \
+    alpine-version="3.11.2" \
+    build="15-Jan-2020" \
     org.opencontainers.image.title="alpine-nginx" \
     org.opencontainers.image.description="Nginx Docker image running on Alpine Linux" \
     org.opencontainers.image.authors="Dominic Taylor <dominic@yobasystems.co.uk>" \
