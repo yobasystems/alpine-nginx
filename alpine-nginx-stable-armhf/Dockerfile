@@ -1,24 +1,24 @@
-FROM yobasystems/alpine:3.11.2-armhf
+FROM yobasystems/alpine:3.11.6-armhf
 
 ARG BUILD_DATE
 ARG VCS_REF
 
 LABEL maintainer="Dominic Taylor <dominic@yobasystems.co.uk>" \
     architecture="arm32v7/armhf" \
-    nginx-version="1.16.1" \
-    alpine-version="3.11.2" \
-    build="15-Jan-2020" \
+    nginx-version="1.18.0" \
+    alpine-version="3.11.6" \
+    build="26-May-2020" \
     org.opencontainers.image.title="alpine-nginx" \
     org.opencontainers.image.description="Nginx Docker image running on Alpine Linux" \
     org.opencontainers.image.authors="Dominic Taylor <dominic@yobasystems.co.uk>" \
     org.opencontainers.image.vendor="Yoba Systems" \
-    org.opencontainers.image.version="v1.16.1" \
+    org.opencontainers.image.version="v1.18.0" \
     org.opencontainers.image.url="https://hub.docker.com/r/yobasystems/alpine-nginx/" \
     org.opencontainers.image.source="https://github.com/yobasystems/alpine-nginx" \
     org.opencontainers.image.revision=$VCS_REF \
     org.opencontainers.image.created=$BUILD_DATE
 
-ENV NGINX_VERSION=1.16.1
+ENV NGINX_VERSION=1.18.0
 
 RUN \
   build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" && \
