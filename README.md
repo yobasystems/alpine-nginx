@@ -149,18 +149,18 @@ webapp:
 
 ## Source Repositories
 
-* [Github - yobasystems/alpine](https://github.com/yobasystems/alpine-nginx)
+* [Github - yobasystems/alpine-nginx](https://github.com/yobasystems/alpine-nginx)
 
-* [Gitlab - yobasystems/alpine](https://gitlab.com/yobasystems/alpine-nginx)
+* [Gitlab - yobasystems/alpine-nginx](https://gitlab.com/yobasystems/alpine-nginx)
 
-* [Bitbucket - yobasystems/alpine](https://bitbucket.org/yobasystems/alpine-nginx/)
+* [Bitbucket - yobasystems/alpine-nginx](https://bitbucket.org/yobasystems/alpine-nginx/)
 
 
 ## Container Registries
 
-* [Dockerhub - yobasystems/alpine](https://hub.docker.com/r/yobasystems/alpine-nginx/)
+* [Dockerhub - yobasystems/alpine-nginx](https://hub.docker.com/r/yobasystems/alpine-nginx/)
 
-* [Quay.io - yobasystems/alpine](https://quay.io/repository/yobasystems/alpine-nginx)
+* [Quay.io - yobasystems/alpine-nginx](https://quay.io/repository/yobasystems/alpine-nginx)
 
 ## Links
 
