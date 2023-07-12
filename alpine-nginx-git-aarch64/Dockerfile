@@ -1,25 +1,25 @@
-FROM yobasystems/alpine:3.18.0-aarch64
+FROM yobasystems/alpine:3.18.2-aarch64
 
 ARG BUILD_DATE
 ARG VCS_REF
 
-LABEL maintainer="Dominic Taylor <dominic@yobasystems.co.uk>" \
+LABEL maintainer="Dominic Taylor <dominic@yoba.systems>" \
     architecture="arm64v8/aarch64" \
-    nginx-version="1.23.4" \
-    alpine-version="3.18.0" \
-    build="11-May-2023" \
+    nginx-version="1.25.1" \
+    alpine-version="3.18.2" \
+    build="12-Jul-2023" \
     org.opencontainers.image.title="alpine-nginx" \
     org.opencontainers.image.description="Nginx Docker image running on Alpine Linux" \
-    org.opencontainers.image.authors="Dominic Taylor <dominic@yobasystems.co.uk>" \
+    org.opencontainers.image.authors="Dominic Taylor <dominic@yoba.systems>" \
     org.opencontainers.image.vendor="Yoba Systems" \
-    org.opencontainers.image.version="v1.23.4" \
+    org.opencontainers.image.version="v1.25.1" \
     org.opencontainers.image.url="https://hub.docker.com/r/yobasystems/alpine-nginx/" \
     org.opencontainers.image.source="https://github.com/yobasystems/alpine-nginx" \
     org.opencontainers.image.revision=$VCS_REF \
     org.opencontainers.image.created=$BUILD_DATE
 
 ENV REPO="https://yobasystems@bitbucket.org/yobasystems/default-index.git"
-ENV NGINX_VERSION=1.23.4
+ENV NGINX_VERSION=1.25.1
 
 RUN \
   build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" && \
