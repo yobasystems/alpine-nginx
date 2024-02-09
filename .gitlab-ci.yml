@@ -31,8 +31,7 @@ amd64 nginx build:
     --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64
     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:amd64 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:amd64
     -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:x86_64 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:x86_64
-    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:x86_64 -t ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG}
-    .
+    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:x86_64 -t ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG} --platform linux/amd64 .
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:x86_64
   - docker push ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG}
@@ -61,7 +60,7 @@ amd64 nginx-git build:
     --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-amd64
     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-amd64 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-amd64
     -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-x86_64 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-x86_64
-    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-x86_64 .
+    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-x86_64 --platform linux/amd64 .
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-amd64
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-x86_64
   - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
@@ -89,7 +88,7 @@ amd64 nginx-git-ssh build:
     --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-amd64
     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh-amd64 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-ssh-amd64
     -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-x86_64 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh-x86_64
-    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-ssh-x86_64 .
+    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-ssh-x86_64 --platform linux/amd64 .
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-amd64
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-x86_64
   - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
@@ -117,7 +116,7 @@ arm64v8 nginx build:
     --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm64v8
     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:arm64v8 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:arm64v8
     -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:aarch64 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:aarch64
-    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:aarch64 .
+    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:aarch64 --platform linux/arm64/v8 .
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm64v8
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:aarch64
   - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
@@ -145,7 +144,7 @@ arm64v8 nginx-git build:
     --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-arm64v8
     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-arm64v8 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-arm64v8
     -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-aarch64 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-aarch64
-    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-aarch64 .
+    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-aarch64 --platform linux/arm64/v8 .
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-arm64v8
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-aarch64
   - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
@@ -173,7 +172,7 @@ arm64v8 nginx-git-ssh build:
     --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-arm64v8
     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh-arm64v8 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-ssh-arm64v8
     -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-aarch64 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh-aarch64
-    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-ssh-aarch64 .
+    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-ssh-aarch64 --platform linux/arm64/v8 .
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-arm64v8
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-aarch64
   - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
@@ -201,7 +200,7 @@ arm32v7 nginx build:
     --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm32v7
     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:arm32v7 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:arm32v7
     -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:armhf -t $DOCKER_REGISTRY_DOCKERHUB_REPO:armhf
-    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:armhf .
+    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:armhf --platform linux/arm/v7 .
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm32v7
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:armhf
   - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
@@ -229,7 +228,7 @@ arm32v7 nginx-git build:
     --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-arm32v7
     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-arm32v7 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-arm32v7
     -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-armhf -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-armhf
-    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-armhf .
+    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-armhf --platform linux/arm/v7 .
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-arm32v7
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-armhf
   - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
@@ -257,7 +256,7 @@ arm32v7 nginx-git-ssh build:
     --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-arm32v7
     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh-arm32v7 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-ssh-arm32v7
     -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-armhf -t $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh-armhf
-    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-ssh-armhf .
+    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:git-ssh-armhf --platform linux/arm/v7 .
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-arm32v7
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-armhf
   - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
@@ -285,8 +284,7 @@ amd64 nginx stable build:
     --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable-amd64
     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:stable-amd64 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:stable-amd64
     -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable-x86_64 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:stable-x86_64
-    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:stable-x86_64 -t ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG}
-    .
+    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:stable-x86_64 -t ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG} --platform linux/amd64 .
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable-amd64
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable-x86_64
   - docker push ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG}
@@ -315,7 +313,7 @@ arm64v8 nginx stable build:
     --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable-arm64v8
     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:stable-arm64v8 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:stable-arm64v8
     -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable-aarch64 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:stable-aarch64
-    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:stable-aarch64 .
+    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:stable-aarch64 --platform linux/arm64/v8 .
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable-arm64v8
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable-aarch64
   - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
@@ -343,7 +341,7 @@ arm32v7 nginx stable build:
     --build-arg BUILD_DATE=${COMMIT_TIME} -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable-arm32v7
     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:stable-arm32v7 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:stable-arm32v7
     -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable-armhf -t $DOCKER_REGISTRY_DOCKERHUB_REPO:stable-armhf
-    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:stable-armhf .
+    -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:stable-armhf --platform linux/arm/v7 .
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable-arm32v7
   - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable-armhf
   - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
@@ -371,9 +369,9 @@ gitlab manifest creation:
   - docker manifest annotate $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:latest $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64
     --os linux --arch amd64
   - docker manifest annotate $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:latest $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm32v7
-    --os linux --arch arm
+    --os linux --arch arm --variant 7
   - docker manifest annotate $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:latest $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm64v8
-    --os linux --arch arm64
+    --os linux --arch arm64 --variant 8
   - docker manifest push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:latest
 dockerhub manifest creation:
   image: yobasystems/alpine-docker:dind
@@ -392,9 +390,9 @@ dockerhub manifest creation:
   - docker manifest annotate $DOCKER_REGISTRY_DOCKERHUB_REPO:latest $DOCKER_REGISTRY_DOCKERHUB_REPO:amd64
     --os linux --arch amd64
   - docker manifest annotate $DOCKER_REGISTRY_DOCKERHUB_REPO:latest $DOCKER_REGISTRY_DOCKERHUB_REPO:arm32v7
-    --os linux --arch arm
+    --os linux --arch arm --variant 7
   - docker manifest annotate $DOCKER_REGISTRY_DOCKERHUB_REPO:latest $DOCKER_REGISTRY_DOCKERHUB_REPO:arm64v8
-    --os linux --arch arm64
+    --os linux --arch arm64 --variant 8
   - docker manifest push $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
 gitlab manifest creation git tag:
   image: yobasystems/alpine-docker:dind
@@ -413,9 +411,9 @@ gitlab manifest creation git tag:
   - docker manifest annotate $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-amd64
     --os linux --arch amd64
   - docker manifest annotate $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-arm32v7
-    --os linux --arch arm
+    --os linux --arch arm --variant 7
   - docker manifest annotate $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-arm64v8
-    --os linux --arch arm64
+    --os linux --arch arm64 --variant 8
   - docker manifest push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git
 dockerhub manifest creation git tag:
   image: yobasystems/alpine-docker:dind
@@ -434,9 +432,9 @@ dockerhub manifest creation git tag:
   - docker manifest annotate $DOCKER_REGISTRY_DOCKERHUB_REPO:git $DOCKER_REGISTRY_DOCKERHUB_REPO:git-amd64
     --os linux --arch amd64
   - docker manifest annotate $DOCKER_REGISTRY_DOCKERHUB_REPO:git $DOCKER_REGISTRY_DOCKERHUB_REPO:git-arm32v7
-    --os linux --arch arm
+    --os linux --arch arm --variant 7
   - docker manifest annotate $DOCKER_REGISTRY_DOCKERHUB_REPO:git $DOCKER_REGISTRY_DOCKERHUB_REPO:git-arm64v8
-    --os linux --arch arm64
+    --os linux --arch arm64 --variant 8
   - docker manifest push $DOCKER_REGISTRY_DOCKERHUB_REPO:git
 gitlab manifest creation git-ssh tag:
   image: yobasystems/alpine-docker:dind
@@ -455,9 +453,9 @@ gitlab manifest creation git-ssh tag:
   - docker manifest annotate $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-amd64
     --os linux --arch amd64
   - docker manifest annotate $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-arm32v7
-    --os linux --arch arm
+    --os linux --arch arm --variant 7
   - docker manifest annotate $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh-arm64v8
-    --os linux --arch arm64
+    --os linux --arch arm64 --variant 8
   - docker manifest push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:git-ssh
 dockerhub manifest creation git-ssh tag:
   image: yobasystems/alpine-docker:dind
@@ -476,9 +474,9 @@ dockerhub manifest creation git-ssh tag:
   - docker manifest annotate $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh-amd64
     --os linux --arch amd64
   - docker manifest annotate $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh-arm32v7
-    --os linux --arch arm
+    --os linux --arch arm --variant 7
   - docker manifest annotate $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh-arm64v8
-    --os linux --arch arm64
+    --os linux --arch arm64 --variant 8
   - docker manifest push $DOCKER_REGISTRY_DOCKERHUB_REPO:git-ssh
 gitlab manifest stable creation:
   image: yobasystems/alpine-docker:dind
@@ -497,9 +495,9 @@ gitlab manifest stable creation:
   - docker manifest annotate $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable-amd64
     --os linux --arch amd64
   - docker manifest annotate $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable-arm32v7
-    --os linux --arch arm
+    --os linux --arch arm --variant 7
   - docker manifest annotate $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable-arm64v8
-    --os linux --arch arm64
+    --os linux --arch arm64 --variant 8
   - docker manifest push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:stable
 dockerhub manifest stable creation:
   image: yobasystems/alpine-docker:dind
@@ -518,9 +516,9 @@ dockerhub manifest stable creation:
   - docker manifest annotate $DOCKER_REGISTRY_DOCKERHUB_REPO:stable $DOCKER_REGISTRY_DOCKERHUB_REPO:stable-amd64
     --os linux --arch amd64
   - docker manifest annotate $DOCKER_REGISTRY_DOCKERHUB_REPO:stable $DOCKER_REGISTRY_DOCKERHUB_REPO:stable-arm32v7
-    --os linux --arch arm
+    --os linux --arch arm --variant 7
   - docker manifest annotate $DOCKER_REGISTRY_DOCKERHUB_REPO:stable $DOCKER_REGISTRY_DOCKERHUB_REPO:stable-arm64v8
-    --os linux --arch arm64
+    --os linux --arch arm64 --variant 8
   - docker manifest push $DOCKER_REGISTRY_DOCKERHUB_REPO:stable
 sast:
   stage: test
