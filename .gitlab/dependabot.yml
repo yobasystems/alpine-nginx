@@ -1,6 +1,38 @@
 version: 2
 updates:
   - package-ecosystem: docker
-    directory: /
+    directory: /alpine-nginx-amd64/
     schedule:
       interval: weekly
+  - package-ecosystem: docker
+    directory: /alpine-nginx-armhf/
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: /alpine-nginx-aarch64/
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: /alpine-nginx-git-amd64/
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: /alpine-nginx-git-armhf/
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: /alpine-nginx-git-aarch64/
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: /alpine-nginx-git-ssh-amd64/
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: /alpine-nginx-git-ssh-armhf/
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: /alpine-nginx-git-ssh-aarch64/
+    schedule:
+      interval: weekly            
