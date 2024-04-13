@@ -5,15 +5,15 @@
 [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/alpine-nginx.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/alpine-nginx/)
 
 [![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.19.1-green.svg?style=for-the-badge)](https://alpinelinux.org/)
-[![Nginx Version](https://img.shields.io/badge/Nginx%20Mainline-v1.25.3-green.svg?style=for-the-badge)](https://nginx.org/en/)
+[![Nginx Version](https://img.shields.io/badge/Nginx%20Mainline-v1.25.4-green.svg?style=for-the-badge)](https://nginx.org/en/)
 [![Nginx Version](https://img.shields.io/badge/Nginx%20Stable-v1.24.0-green.svg?style=for-the-badge)](https://nginx.org/en/)
 
 
-This Docker image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasystems/alpine-nginx/) is based on the minimal [Alpine Linux](https://alpinelinux.org/) with version 1.25.3 of [NGINX](https://nginx.org/en/)
+This Container image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasystems/alpine-nginx/) is based on the minimal [Alpine Linux](https://alpinelinux.org/) with version 1.25.4 of [NGINX](https://nginx.org/en/)
 
 
 ### Alpine Version 3.19.1 (Released 2023-01-26)
-##### NGINX Version 1.25.3 (Mainline)
+##### NGINX Version 1.25.4 (Mainline)
 ##### NGINX Version 1.24.0 (Stable)
 
 ----
@@ -35,7 +35,7 @@ This Docker image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasyst
 
 
 ## 🏔️ What is Alpine Linux?
-Alpine Linux is a Linux distribution built around musl libc and BusyBox. The image is only 5 MB in size and has access to a package repository that is much more complete than other BusyBox based images. This makes Alpine Linux a great image base for utilities and even production applications. Read more about Alpine Linux here and you can see how their mantra fits in right at home with Docker images.
+Alpine Linux is a Linux distribution built around musl libc and BusyBox. The image is only 5 MB in size and has access to a package repository that is much more complete than other BusyBox based images. This makes Alpine Linux a great image base for utilities and even production applications. Read more about Alpine Linux here and you can see how their mantra fits in right at home with Container images.
 
 ## What is NGINX?
 NGINX is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more. It started out as a web server designed for maximum performance and stability. In addition to its HTTP server capabilities, NGINX can also function as a proxy server for email (IMAP, POP3, and SMTP) and a reverse proxy and load balancer for HTTP, TCP, and UDP servers. [engine-ex]

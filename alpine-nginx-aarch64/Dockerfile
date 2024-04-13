@@ -5,21 +5,21 @@ ARG VCS_REF
 
 LABEL maintainer="Dominic Taylor <dominic@yoba.systems>" \
     architecture="arm64v8/aarch64" \
-    nginx-version="1.25.3" \
+    nginx-version="1.25.4" \
     alpine-version="3.19.1" \
-    build="11-Feb-2024" \
+    build="13-Apr-2024" \
     org.opencontainers.image.title="alpine-nginx" \
     org.opencontainers.image.description="Nginx container image running on Alpine Linux" \
     org.opencontainers.image.authors="Dominic Taylor <dominic@yoba.systems>" \
     org.opencontainers.image.vendor="Yoba Systems" \
-    org.opencontainers.image.version="1.25.3" \
+    org.opencontainers.image.version="1.25.4" \
     org.opencontainers.image.url="https://hub.docker.com/r/yobasystems/alpine-nginx/" \
     org.opencontainers.image.source="https://github.com/yobasystems/alpine-nginx" \
     org.opencontainers.image.base.name="docker.io/yobasystems/alpine:3.19.1" \
     org.opencontainers.image.revision=$VCS_REF \
     org.opencontainers.image.created=$BUILD_DATE
 
-ENV NGINX_VERSION=1.25.3
+ENV NGINX_VERSION=1.25.4
 
 RUN \
   build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" && \
