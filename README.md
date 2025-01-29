@@ -57,7 +57,7 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 ## 🏷️ Tags
 
 * ```:latest``` latest branch based on mainline (Automatic Architecture Selection)
-* ```:main``` master branch usually inline with latest (Automatic Architecture Selection)
+* ```:main``` main branch usually inline with latest (Automatic Architecture Selection)
 * ```:mainline``` latest branch based on mainline release (Automatic Architecture Selection)
 * ```:stable``` stable branch usually inline with latest stable release (Automatic Architecture Selection)
 * ```:git``` latest branch with git based on mainline (Automatic Architecture Selection)
