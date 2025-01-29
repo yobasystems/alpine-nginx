@@ -4,16 +4,16 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/alpine-nginx.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/alpine-nginx/)
 [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/alpine-nginx.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/alpine-nginx/)
 
-[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.20.2-green.svg?style=for-the-badge)](https://alpinelinux.org/)
-[![Nginx Version](https://img.shields.io/badge/Nginx%20Mainline-v1.27.1-green.svg?style=for-the-badge)](https://nginx.org/en/)
+[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.21.1-green.svg?style=for-the-badge)](https://alpinelinux.org/)
+[![Nginx Version](https://img.shields.io/badge/Nginx%20Mainline-v1.27.3-green.svg?style=for-the-badge)](https://nginx.org/en/)
 [![Nginx Version](https://img.shields.io/badge/Nginx%20Stable-v1.26.2-green.svg?style=for-the-badge)](https://nginx.org/en/)
 
 
-This Container image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasystems/alpine-nginx/) is based on the minimal [Alpine Linux](https://alpinelinux.org/) with version 1.27.1 of [NGINX](https://nginx.org/en/)
+This Container image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasystems/alpine-nginx/) is based on the minimal [Alpine Linux](https://alpinelinux.org/) with version 1.27.3 of [NGINX](https://nginx.org/en/)
 
 
-### Alpine Version 3.20.2 (Released 2024-07-22)
-##### NGINX Version 1.27.1 (Mainline)
+### Alpine Version 3.21.1 (Released 2025-01-06)
+##### NGINX Version 1.27.3 (Mainline)
 ##### NGINX Version 1.26.2 (Stable)
 
 ----
@@ -57,7 +57,7 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 ## 🏷️ Tags
 
 * ```:latest``` latest branch based on mainline (Automatic Architecture Selection)
-* ```:master``` master branch usually inline with latest (Automatic Architecture Selection)
+* ```:main``` master branch usually inline with latest (Automatic Architecture Selection)
 * ```:mainline``` latest branch based on mainline release (Automatic Architecture Selection)
 * ```:stable``` stable branch usually inline with latest stable release (Automatic Architecture Selection)
 * ```:git``` latest branch with git based on mainline (Automatic Architecture Selection)
@@ -174,28 +174,24 @@ webapp:
 ## 📚 Source Repositories
 
 * [Github - yobasystems/alpine-nginx](https://github.com/yobasystems/alpine-nginx)
-
 * [Gitlab - yobasystems/alpine-nginx](https://gitlab.com/yobasystems/alpine-nginx)
-
 * [Bitbucket - yobasystems/alpine-nginx](https://bitbucket.org/yobasystems/alpine-nginx/)
 
 
 ## 🐳 Container Registries
 
 * [Dockerhub - yobasystems/alpine-nginx](https://hub.docker.com/r/yobasystems/alpine-nginx/)
-
 * [Quay.io - yobasystems/alpine-nginx](https://quay.io/repository/yobasystems/alpine-nginx)
+* [GHCR - yobasystems/alpine-nginx](https://ghcr.io/yobasystems/alpine-nginx)
+
 
 ## 🔗 Links
 
-* [Yoba Systems](https://www.yobasystems.co.uk/)
-
+* [Yoba Systems](https://yoba.systems/)
 * [Github - Yoba Systems](https://github.com/yobasystems/)
-
 * [Dockerhub - Yoba Systems](https://hub.docker.com/u/yobasystems/)
-
 * [Quay.io - Yoba Systems](https://quay.io/organization/yobasystems)
-
+* [GHCR - Yoba Systems](https://ghcr.io/yobasystems)
 * [Maintainer - Dominic Taylor](https://github.com/dominictayloruk)
 
 ## 💰 Donation
