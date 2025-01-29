@@ -153,13 +153,12 @@ amd64 alpine-nginx-git build:
     - echo "Build Timestamp ${CI_COMMIT_TIMESTAMP} - ${CI_COMMIT_SHORT_SHA}"
     - echo "Building for ARCH=${ARCH}, PLATFORM=${PLATFORM}, VARIANT=${VARIANT}"
     - apk add --update git
-    - cd alpine-nginx-${ARCH}/
+    - cd alpine-nginx-${VARIANT}-${ARCH}/
     - docker build
       --build-arg VCS_REF=${CI_COMMIT_SHORT_SHA}
       --build-arg BUILD_DATE=${CI_COMMIT_TIMESTAMP}
       -t ${CI_REGISTRY_IMAGE}/${CI_COMMIT_SHORT_SHA}:${ARCH}-${VARIANT}
       --platform linux/${PLATFORM}
-      -f Dockerfile.${VARIANT}
       .
     - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token "$CI_REGISTRY" --password-stdin
     - docker push ${CI_REGISTRY_IMAGE}/${CI_COMMIT_SHORT_SHA}:${ARCH}-${VARIANT}
@@ -279,10 +278,7 @@ amd64 alpine-nginx-git deploy:
     - docker push quay.io/$DOCKER_REGISTRY_QUAY_REPO:${ARCH}-${VARIANT}
     - docker push ghcr.io/$DOCKER_REGISTRY_GHCR_REPO:${ARCH}-${VARIANT}
 
-# Similar deploy jobs for arm32v7 and arm64v8 for git, git-ssh, and stable variants
-# ... (following the same pattern)
 
-# Manifest jobs for variants
 manifest creation git:
   image: yobasystems/alpine-docker:dind
   stage: manifest
@@ -320,8 +316,6 @@ manifest creation git:
         create_and_push_manifest $repo ${VARIANT}
       done
 
-# Similar manifest jobs for git-ssh and stable variants
-# ... (following the same pattern)
 
 arm32v7 alpine-nginx-git deploy:
   <<: *deploy_definition
