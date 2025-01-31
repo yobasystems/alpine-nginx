@@ -1,4 +1,4 @@
-FROM yobasystems/alpine:3.21.1-aarch64
+FROM yobasystems/alpine:3.21.2-aarch64
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -6,8 +6,8 @@ ARG VCS_REF
 LABEL maintainer="Dominic Taylor <dominic@yoba.systems>" \
     architecture="arm64v8/aarch64" \
     nginx-version="1.26.2" \
-    alpine-version="3.21.1" \
-    build="29-Jan-2025" \
+    alpine-version="3.21.2" \
+    build="31-Jan-2025" \
     org.opencontainers.image.title="alpine-nginx" \
     org.opencontainers.image.description="Nginx container image running on Alpine Linux" \
     org.opencontainers.image.authors="Dominic Taylor <dominic@yoba.systems>" \
@@ -15,7 +15,7 @@ LABEL maintainer="Dominic Taylor <dominic@yoba.systems>" \
     org.opencontainers.image.version="1.26.2" \
     org.opencontainers.image.url="https://hub.docker.com/r/yobasystems/alpine-nginx/" \
     org.opencontainers.image.source="https://github.com/yobasystems/alpine-nginx" \
-    org.opencontainers.image.base.name="docker.io/yobasystems/alpine:3.21.1" \
+    org.opencontainers.image.base.name="docker.io/yobasystems/alpine:3.21.2" \
     org.opencontainers.image.revision=$VCS_REF \
     org.opencontainers.image.created=$BUILD_DATE
 
