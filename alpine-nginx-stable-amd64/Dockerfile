@@ -1,25 +1,25 @@
-FROM yobasystems/alpine:3.21.2-amd64
+FROM yobasystems/alpine:3.22.0-amd64
 
 ARG BUILD_DATE
 ARG VCS_REF
 
 LABEL maintainer="Dominic Taylor <dominic@yoba.systems>" \
     architecture="amd64/x86_64" \
-    nginx-version="1.26.2" \
-    alpine-version="3.21.2" \
-    build="31-Jan-2025" \
+    nginx-version="1.28.0" \
+    alpine-version="3.22.0" \
+    build="16-Jun-2025" \
     org.opencontainers.image.title="alpine-nginx" \
     org.opencontainers.image.description="Nginx container image running on Alpine Linux" \
     org.opencontainers.image.authors="Dominic Taylor <dominic@yoba.systems>" \
     org.opencontainers.image.vendor="Yoba Systems" \
-    org.opencontainers.image.version="1.26.2" \
+    org.opencontainers.image.version="1.28.0" \
     org.opencontainers.image.url="https://hub.docker.com/r/yobasystems/alpine-nginx/" \
     org.opencontainers.image.source="https://github.com/yobasystems/alpine-nginx" \
-    org.opencontainers.image.base.name="docker.io/yobasystems/alpine:3.21.2" \
+    org.opencontainers.image.base.name="docker.io/yobasystems/alpine:3.22.0" \
     org.opencontainers.image.revision=$VCS_REF \
     org.opencontainers.image.created=$BUILD_DATE
 
-ENV NGINX_VERSION=1.26.2
+ENV NGINX_VERSION=1.28.0
 
 RUN \
   build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" && \
