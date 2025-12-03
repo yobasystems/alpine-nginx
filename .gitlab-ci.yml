@@ -463,7 +463,7 @@ manifest_creation_git_ssh:
   variables:
     VARIANT: git-ssh
   script:
-    - !reference [manifest creation git, script]
+    - !reference [manifest_creation_git, script]
 
 manifest_creation_stable:
   image: yobasystems/alpine-docker:dind
@@ -478,15 +478,15 @@ manifest_creation_stable:
   variables:
     VARIANT: stable
   script:
-    - !reference [manifest creation git, script]
+    - !reference [manifest_creation_git, script]
 
 manifest_creation_version:
   image: yobasystems/alpine-docker:dind
   stage: manifest
   needs:
-    - amd64_alpine_nginx_version_deploy
-    - arm32v7_alpine_nginx_version_deploy
-    - arm64v8_alpine_nginx_version_deploy
+    - amd64_alpine_nginx_deploy
+    - arm32v7_alpine_nginx_deploy
+    - arm64v8_alpine_nginx_deploy
   rules:
     - if: $CI_COMMIT_TAG
   script:
