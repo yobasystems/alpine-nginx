@@ -4,20 +4,19 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/alpine-nginx.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/alpine-nginx/)
 [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/alpine-nginx.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/alpine-nginx/)
 
-[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.22.2-green.svg?style=for-the-badge)](https://alpinelinux.org/)
+[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.23.0-green.svg?style=for-the-badge)](https://alpinelinux.org/)
 [![Nginx Version](https://img.shields.io/badge/Nginx%20Mainline-v1.29.3-green.svg?style=for-the-badge)](https://nginx.org/en/)
 [![Nginx Version](https://img.shields.io/badge/Nginx%20Stable-v1.28.0-green.svg?style=for-the-badge)](https://nginx.org/en/)
 
-
 This Container image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobasystems/alpine-nginx/) is based on the minimal [Alpine Linux](https://alpinelinux.org/) with version 1.29.3 of [NGINX](https://nginx.org/en/)
 
+### Alpine Version 3.23.0 (Released 2025-12-03)
 
-### Alpine Version 3.22.2 (Released 2025-10-08)
 ##### NGINX Version 1.29.3 (Mainline)
+
 ##### NGINX Version 1.28.0 (Stable)
 
-----
-
+---
 
 ## Table of Contents
 
@@ -33,44 +32,42 @@ This Container image [(yobasystems/alpine-nginx)](https://hub.docker.com/r/yobas
 - [Links](#links)
 - [Donation](#donation)
 
-
 ## 🏔️ What is Alpine Linux?
+
 Alpine Linux is a Linux distribution built around musl libc and BusyBox. The image is only 5 MB in size and has access to a package repository that is much more complete than other BusyBox based images. This makes Alpine Linux a great image base for utilities and even production applications. Read more about Alpine Linux here and you can see how their mantra fits in right at home with Container images.
 
 ## What is NGINX?
+
 NGINX is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more. It started out as a web server designed for maximum performance and stability. In addition to its HTTP server capabilities, NGINX can also function as a proxy server for email (IMAP, POP3, and SMTP) and a reverse proxy and load balancer for HTTP, TCP, and UDP servers. [engine-ex]
 
 ## ✨ Features
 
-* Minimal size only, minimal layers
-* Memory usage is minimal on a simple install.
-* Auto git clone from repo with `yobasystems/alpine-nginx:git` tag or `yobasystems/alpine-nginx:git-ssh`
+- Minimal size only, minimal layers
+- Memory usage is minimal on a simple install.
+- Auto git clone from repo with `yobasystems/alpine-nginx:git` tag or `yobasystems/alpine-nginx:git-ssh`
 
 ## 🏗️ Architectures
 
-* ```:amd64```, ```:x86_64``` - 64 bit Intel/AMD (x86_64/amd64)
-* ```:arm64v8```, ```:aarch64``` - 64 bit ARM (ARMv8/aarch64)
-* ```:arm32v7```, ```:armhf``` - 32 bit ARM (ARMv7/armhf)
-
-#### 📝 PLEASE CHECK TAGS BELOW FOR SUPPORTED ARCHITECTURES, THE ABOVE IS A LIST OF EXPLANATION
+- `:amd64`, `:x86_64` - 64 bit Intel/AMD (x86_64/amd64)
+- `:arm64v8`, `:aarch64` - 64 bit ARM (ARMv8/aarch64)
+- `:arm32v7`, `:armhf` - 32 bit ARM (ARMv7/armhf)
 
 ## 🏷️ Tags
 
-* ```:latest``` latest branch based on mainline (Automatic Architecture Selection)
-* ```:main``` main branch usually inline with latest (Automatic Architecture Selection)
-* ```:mainline``` latest branch based on mainline release (Automatic Architecture Selection)
-* ```:stable``` stable branch usually inline with latest stable release (Automatic Architecture Selection)
-* ```:git``` latest branch with git based on mainline (Automatic Architecture Selection)
-* ```:git-ssh``` latest branch with git and ssh auth for private repo based on mainline (Automatic Architecture Selection)
-* ```:amd64```, ```:x86_64``` amd64 based on latest tag but amd64 architecture
-* ```:amd64-git```, ```:x86_64-git``` amd64 based on latest tag but amd64 architecture and includes git
-* ```:amd64-git-ssh```, ```:-x86_64-git-ssh``` amd64 based on latest tag but amd64 architecture and includes git and ssh auth for private repo
-* ```:aarch64```, ```:arm64v8``` Armv8 based on latest tag but arm64 architecture
-* ```:aarch64-git```, ```:arm64v8-git``` Armv8 based on latest tag but arm64 architecture and includes git
-* ```:aarch64-git-ssh```, ```:arm64v8-git-ssh``` Armv8 based on latest tag but arm64 architecture and includes git and ssh auth for private repo
-* ```:armhf```, ```:arm32v7``` Armv7 based on latest tag but arm architecture
-* ```:armhf-git```, ```:arm32v7-git``` Armv7 based on latest tag but arm architecture and includes git
-* ```:armhf-git-ssh```, ```:arm32v7-git-ssh``` Armv7 based on latest tag but arm architecture and includes git and ssh auth for private repo
+- `:latest` latest branch based on mainline (Automatic Architecture Selection)
+- `:main` main branch usually inline with latest (Automatic Architecture Selection)
+- `:stable` stable branch usually inline with latest stable release (Automatic Architecture Selection)
+- `:git` latest branch with git based on mainline (Automatic Architecture Selection)
+- `:git-ssh` latest branch with git and ssh auth for private repo based on mainline (Automatic Architecture Selection)
+- `:amd64`, `:x86_64` amd64 based on latest tag but amd64 architecture
+- `:amd64-git`, `:x86_64-git` amd64 based on latest tag but amd64 architecture and includes git
+- `:amd64-git-ssh`, `:-x86_64-git-ssh` amd64 based on latest tag but amd64 architecture and includes git and ssh auth for private repo
+- `:aarch64`, `:arm64v8` Armv8 based on latest tag but arm64 architecture
+- `:aarch64-git`, `:arm64v8-git` Armv8 based on latest tag but arm64 architecture and includes git
+- `:aarch64-git-ssh`, `:arm64v8-git-ssh` Armv8 based on latest tag but arm64 architecture and includes git and ssh auth for private repo
+- `:armhf`, `:arm32v7` Armv7 based on latest tag but arm architecture
+- `:armhf-git`, `:arm32v7-git` Armv7 based on latest tag but arm architecture and includes git
+- `:armhf-git-ssh`, `:arm32v7-git-ssh` Armv7 based on latest tag but arm architecture and includes git and ssh auth for private repo
 
 ## 📏 Layers & Sizes
 
@@ -83,11 +80,11 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 ![Version](https://img.shields.io/badge/version-armhf-blue.svg?style=for-the-badge)
 ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/yobasystems/alpine-nginx/armhf.svg?style=for-the-badge)
 
-
 ## 🚀 How to use this image
+
 ## Environment Variables:
 
-* `URL`: specify the url with that nginx will listen on. Default to localhost.
+- `URL`: specify the url with that nginx will listen on. Default to localhost.
 
 ## HTML content
 
@@ -122,13 +119,12 @@ To use persistent data , then use the volume var:
 docker run --name webapp -p 80:80 -p 443:443 -e URL=www.example.co.uk -v /app/www:/etc/nginx/html yobasystems/alpine-nginx
 ```
 
-
 Nginx logs (access and error logs) output to `stdout` and `stderr`
 
 ## Docker Compose example:
 
-```yalm
-version: '2'
+```yaml
+version: "3"
 services:
 webapp:
   image: yobasystems/alpine-nginx
@@ -145,8 +141,8 @@ webapp:
 
 ## Docker Compose example (Git):
 
-```yalm
-version: '2'
+```yaml
+version: "3"
 services:
 webapp:
   image: yobasystems/alpine-nginx:git
@@ -164,28 +160,25 @@ webapp:
 
 ## 🔍 Image contents & Vulnerability analysis
 
-| PACKAGE NAME          | PACKAGE VERSION | VULNERABILITIES |
-|-----------------------|-----------------|-----------------|
-
+| PACKAGE NAME | PACKAGE VERSION | VULNERABILITIES |
+| ------------ | --------------- | --------------- |
 
 ## 📚 Source Repositories
 
-* [Github - yobasystems/alpine-nginx](https://github.com/yobasystems/alpine-nginx)
-* [Gitlab - yobasystems/alpine-nginx](https://gitlab.com/yobasystems/alpine-nginx)
-
+- [Github - yobasystems/alpine-nginx](https://github.com/yobasystems/alpine-nginx)
+- [Gitlab - yobasystems/alpine-nginx](https://gitlab.com/yobasystems/alpine-nginx)
 
 ## 🐳 Container Registries
 
-* [Dockerhub - yobasystems/alpine-nginx](https://hub.docker.com/r/yobasystems/alpine-nginx/)
-* [Quay.io - yobasystems/alpine-nginx](https://quay.io/repository/yobasystems/alpine-nginx)
-* [GHCR - yobasystems/alpine-nginx](https://ghcr.io/yobasystems/alpine-nginx)
-
+- [Dockerhub - yobasystems/alpine-nginx](https://hub.docker.com/r/yobasystems/alpine-nginx/)
+- [Quay.io - yobasystems/alpine-nginx](https://quay.io/repository/yobasystems/alpine-nginx)
+- [GHCR - yobasystems/alpine-nginx](https://ghcr.io/yobasystems/alpine-nginx)
 
 ## 🔗 Links
 
-* [Yoba Systems](https://yoba.systems/)
-* [Github - Yoba Systems](https://github.com/yobasystems/)
-* [Dockerhub - Yoba Systems](https://hub.docker.com/u/yobasystems/)
-* [Quay.io - Yoba Systems](https://quay.io/organization/yobasystems)
-* [GHCR - Yoba Systems](https://ghcr.io/yobasystems)
-* [Maintainer - Dominic Taylor](https://github.com/dominictayloruk)
+- [Yoba Systems](https://yoba.systems/)
+- [Github - Yoba Systems](https://github.com/yobasystems/)
+- [Dockerhub - Yoba Systems](https://hub.docker.com/u/yobasystems/)
+- [Quay.io - Yoba Systems](https://quay.io/organization/yobasystems)
+- [GHCR - Yoba Systems](https://ghcr.io/yobasystems)
+- [Maintainer - Dominic Taylor](https://github.com/dominictayloruk)
